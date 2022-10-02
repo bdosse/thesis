@@ -1,0 +1,13 @@
+# Fdb version 3
+["latex"] 1663749608 "/media/sdcard/Uni/2022/thesis/master.tex" "master.dvi" "master" 1663749608
+  "../preamble.tex" 0 -1 0 ""
+  "/media/sdcard/Uni/2022/thesis/master.tex" 1663749608 193 e1861f7b0ce14fe9100433fa25fc57bc ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1642003679 20145 aad8c3dd3bc36e260347b84002182bc2 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1642003679 8449 a72d5d4e612221b46000c3d71724e0ef ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1642002331 40136 b05acc85e8425979e52682d98a2bcacf ""
+  "/usr/share/texlive/texmf-var/web2c/pdftex/latex.fmt" 1663510037 1344988 9f4d1eb0b0df8adc94e47632746d5f65 ""
+  "master.aux" 1663749608 32 3985256e7290058c681f74d7a3565a19 ""
+  "master.tex" 1663749608 193 e1861f7b0ce14fe9100433fa25fc57bc ""
+  (generated)
+  "master.dvi"
+  "master.log"
