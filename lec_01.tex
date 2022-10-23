@@ -1,0 +1,40 @@
+\lecture{1}{dim. 16 oct. 2022 20:44}{Construction initiale}
+
+\section{Intégrale d'Itô}
+
+Quelques rappels : définition comme limite, la règle de la chaîne,
+quelques propriétés remarquables.
+
+\section{Intégrale de Stratonovich}
+
+Définitions, comparaison avec l'intégrale d'Itô. Beaucoup de propriété
+de l'intégrale d'Itô sont retrouvées ici. Équivalence dans la
+formulation de certaines EDS. Signaler que ces formulations ne sont
+pas toujours équivalentes, et donner un contre-exemple.
+
+\section{EDS et analyse numérique}
+
+Pas vraiment intéressant. On donnera quelques définitions, propriétés
+(que l'on démontre dans le cas stochastique), et on essaie de trouver
+des EDS qui diverge rapidement pour Euler-Maruyama.
+
+\subsection{Les algorithmes}
+
+Pour le moment, Euler-Maruyama et Milstein. Il faudra introduire la
+notion de développement de Taylor-Itô. Les démonstrations reposeront
+sur ce développement (enfin, surtout pour donner l'intuition
+nécessaire).
+
+On peut évoquer les méthodes de Runge-Kutta stochastiques, mais ça
+demande beaucoup plus de développement que dans le cas des équations
+différentielles ordinaires.
+
+\section{Champs gaussiens}
+
+On fait intervenir l'article de \cite{bierme} : les champs
+gaussiens. On utilise alors un développement en ondelettes, ce qui
+permet de traiter le signal aléatoire d'une façon plus lisse (on sait
+que les processus de Wiener possède quelques propriétés liées à leur
+régularité, mais qu'en est-il lorsque l'on applique un produit
+tensoriel ?)
+
