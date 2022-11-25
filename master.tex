@@ -1,10 +1,20 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper, 11pt]{article}
 \input{../../latex/header/header.tex}
-\title{Master Thesis}
+\input{../../latex/header/article.tex}
+% \input{../../latex/header/book.tex}
+\makeatletter
+\title{Mémoire de Master}\let\thetitle\@title
+\author{Benjamin Dosse}\let\theauthor\@author
+\date{\textsc{Année académique 2022--2023}}\let\thedate\@date
+\makeatother
 \begin{document}
+% \frontmatter
 \maketitle
 \tableofcontents
+% \mainmatter
 % start lectures
-    \input{lec_01.tex}
 % end lectures
+\printbibliography
+%\addcontentsline{toc}{chapter}{Bibliographie}
+\addcontentsline{toc}{section}{Références}
 \end{document}
