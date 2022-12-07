@@ -1,5 +1,28 @@
 \lecture{2}{ven. 02 déc. 2022 23:03}{Processus harmonisables}
 
+La notion de processus harmonisable est présentée par
+M. Loève~\cite{loeve1945}. Dans ce chapitre, on notera
+$\corr_X(t_1,t_2)$ l'auto-corrélation d'un processus centré $X$ aux
+temps $t_1, t_2$, pour autant que $\Esp{|X|^2} < \infty$. S'il existe
+une fonction d'auto-corrélation $\gamma$ de variation bornée telle
+que
+\[ \corr_X(t_1,t_2) = \iint e^{i(t_1s_1 - t_2s_2)} d\gamma(s_1,s_2)
+  ,\] alors on dira que $\corr_X$ est \emph{harmonisbale}.
+
+\nomenclature{$\corr_X$}{Fonction d'auto-corrélation d'un processus
+  $X \in L^2(\Omega)$}
+
+On dira qu'un processus $X\in L^2(\Omega)$ est un \emph{processus
+  harmonisable} s'il existe une variable aléatoire $Y\in L^2(\Omega)$
+telle que $\corr_Y$ est harmonisable et telle que
+\[ X(t) = \int e^{its} dY(s) \] où l'égalité est entendue au sens de
+la convergence presque sûre. Nous allons montrer qu'un processus est
+harmonisable si, et seulement si, sa fonction d'auto-corrélation est
+harmonisable. Nous donnerons ensuite des \emph{représentations
+  harmonisables} de tels processus, tout en donnant quelques
+propriétés remarquables de ceux-ci.
+
+
 \section{Représentation en série orthogonale}
 \section{Représentation intégrale}
 \section{Représentation en moyenne mobile}

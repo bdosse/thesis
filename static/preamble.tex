@@ -11,11 +11,17 @@
 \usepackage{csquotes}
 \usepackage[T1]{fontenc}
 
+\usepackage{nomencl}
+\renewcommand{\nomname}{Liste des symboles}
+\renewcommand{\nompreamble}{La liste suivante décris quelques symboles
+et notations utilisés tout au long de ce document.}
+
 \usepackage{hyperref}
 \usepackage[shortlabels]{enumitem}
 \usepackage{parskip}
 
 % Bibliographie & ToC
+\usepackage{shorttoc}
 \setcounter{tocdepth}{3}
 \usepackage[citestyle=numeric,style=./static/bib/iso-fp,backend=biber]{biblatex}
 \addbibresource{./static/bib/sources.bib}
