@@ -1,0 +1,65 @@
+\usepackage{subcaption}
+\usepackage{graphicx}
+\graphicspath{ {./static/figures/} }
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+
+% Formatting packages
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+
+\usepackage{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{parskip}
+
+% Bibliographie & ToC
+\setcounter{tocdepth}{3}
+\usepackage[citestyle=numeric,style=./static/bib/iso-fp,backend=biber]{biblatex}
+\addbibresource{./static/bib/sources.bib}
+
+% Paquets math
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
+\usepackage{mathrsfs}
+
+\input{./static/thm-env.tex}
+
+\newcommand{\Set}[1]{\mathbb{#1}}
+\newcommand{\Cal}[1]{\mathcal{#1}}
+\newcommand{\Scr}[1]{\mathscr{#1}}
+\newcommand{\Frak}[1]{\mathfrak{#1}}
+
+\newcommand{\C}{\Set{C}}
+\newcommand{\R}{\Set{R}}
+\newcommand{\N}{\Set{N}}
+\newcommand{\Z}{\Set{Z}}
+\newcommand{\Q}{\Set{Q}}
+\newcommand{\T}{\Set{T}}
+
+\newcommand{\cA}{\Cal{A}}
+\newcommand{\cB}{\Cal{B}}
+\newcommand{\cC}{\Cal{C}}
+\newcommand{\cF}{\Cal{F}}
+
+\newcommand{\sA}{\Scr{A}}
+\newcommand{\sB}{\Scr{B}}
+\newcommand{\sC}{\Scr{C}}
+\newcommand{\sF}{\Scr{F}}
+
+\newcommand{\nP}{\mathbb{P}}
+\newcommand{\nE}{\mathbb{E}}
+\newcommand{\Esp}[1]{\nE\left[#1\right]}
+
+\newcommand{\floor}[1]{\lfloor#1\rfloor}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\conj}[1]{\overline{#1}}
+
+\newcommand{\oset}[2]{\left]#1,#2\right[}
+\newcommand{\cset}[2]{\left[#1,#2\right]}
+\newcommand{\ocset}[2]{\left]#1,#2\right]}
+\newcommand{\coset}[2]{\left[#1,#2\right[}
+
+\newcommand{\adh}[1]{\overline{#1}}
+\newcommand{\interieur}[1]{#1^\circ}

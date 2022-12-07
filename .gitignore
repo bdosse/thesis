@@ -9,9 +9,6 @@
 *.nav
 *.out
 
-*.pdf
-!master.pdf
-
 *.run.xml
 *.snm
 *.toc

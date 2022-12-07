@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \documentclass[a4paper, 11pt]{article}
 \input{./static/preamble.tex}
 \input{./static/article.tex}
@@ -6,15 +7,35 @@
 \title{Master Thesis}\let\thetitle\@title
 \date{\textsc{Année Académique 2022--2023}}\let\thedate\@date
 % \author{\emph{Notes de cours par} Benjamin Dosse}\let\theauthor\@author
+=======
+\documentclass[a4paper, 11pt]{book}
+\input{./static/preamble.tex}
+% \input{./static/article.tex}
+\input{./static/book.tex}
+\makeatletter
+\title{Mémoire de Master}\let\thetitle\@title
+\date{\textsc{Année Académique 2022--2023}}\let\thedate\@date
+\author{Benjamin Dosse}\let\theauthor\@author
+>>>>>>> refs/remotes/origin/main
 \makeatother
 \begin{document}
-% \frontmatter
+\frontmatter
 \maketitle
 \tableofcontents
-% \mainmatter
+\mainmatter
 % start lectures
+    \input{lec_01.tex}
+    \input{lec_02.tex}
+    \input{lec_03.tex}
+    \input{lec_04.tex}
 % end lectures
 \printbibliography
+<<<<<<< HEAD
 \addcontentsline{toc}{section}{Références}
 % \addcontentsline{toc}{chapter}{Bibliographie}
+=======
+\nocite{*}
+% \addcontentsline{toc}{section}{Références}
+\addcontentsline{toc}{chapter}{Bibliographie}
+>>>>>>> refs/remotes/origin/main
 \end{document}

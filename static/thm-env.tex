@@ -1,0 +1,126 @@
+\usepackage{tikz, tikz-cd}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,
+  %skipbelow=0em,
+  %innertopmargin=5pt,
+  %innerbottommargin=5pt
+  }
+
+\theoremstyle{definition}
+\makeatletter
+
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries\scshape,
+  bodyfont=\normalfont\itshape,
+  qed=$\blacksquare$,
+  mdframed={ nobreak }]{unprovedthmboxed}
+
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries\scshape,
+bodyfont=\normalfont\itshape,
+mdframed={ nobreak }]{thmboxed}
+
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries\scshape,
+  mdframed={ nobreak }]{defboxed}
+
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries\scshape
+  ]{defunboxed}
+
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries,
+  bodyfont=\normalfont,
+  numbered=no,
+  qed=$\blacksquare$]{proofline}
+
+\declaretheorem[
+  numberwithin=section,
+  style=defboxed,
+  name=Définition
+]{definition}
+
+\declaretheorem[
+  sibling=definition,
+  style=thmboxed,
+  name=Lemme
+]{lemme}
+
+\declaretheorem[
+  sibling=definition,
+  style=thmboxed,
+  name=Proposition
+]{proposition}
+
+\declaretheorem[
+  sibling=definition,
+  style=thmboxed,
+  name=Théorème
+]{theoreme}
+
+\declaretheorem[
+  sibling=definition,
+  style=thmboxed,
+  name=Corollaire
+]{corollaire}
+
+\declaretheorem[
+  sibling=definition,
+  style=unprovedthmboxed,
+  name=Lemme
+]{ulemme}
+
+\declaretheorem[
+  sibling=definition,
+  style=unprovedthmboxed,
+  name=Proposition
+]{uproposition}
+
+\declaretheorem[
+  sibling=definition,
+  style=unprovedthmboxed,
+  name=Théorème
+]{utheoreme}
+
+\declaretheorem[
+  sibling=definition,
+  style=unprovedthmboxed,
+  name=Corollaire
+]{ucorollaire}
+
+\declaretheorem[
+  sibling=definition,
+  style=defunboxed,
+  name=Remarque
+]{remarque}
+
+\declaretheorem[
+  numbered=no,
+  style=defunboxed,
+  name=Exemple
+]{exemple}
+
+\declaretheorem[
+  numbered=no,
+  style=defunboxed,
+  name=Notation
+]{note}
+
+\declaretheorem[
+  numbered=no,
+  style=proofline,
+  name=Démonstration]{replacementproof}
+
+\renewenvironment{proof}[1][\proofname]
+{\begin{replacementproof}}
+{\end{replacementproof}}
+
+%\newtheorem{exo}{Exercice}[section]
+%\theoremstyle{plain}
+%\newtheorem{lm}[mdef]{Lemme}
+%\newtheorem{pro}[mdef]{Proposition}
+%\newtheorem{cor}[mdef]{Corollaire}
+%\newtheorem{thm}[mdef]{Théorème}
+
+\makeatother
