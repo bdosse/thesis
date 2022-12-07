@@ -1,0 +1,33 @@
+\usepackage[marginparwidth=2.4cm,
+            left=3.2cm, right=3.2cm, top=2.7cm, bottom=3cm,
+            headheight=16pt]{geometry}
+
+\usepackage[Rejne]{fncychap}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thelecture}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[L]{\textsc{\thetitle}}
+\fancyfoot[R]{\thepage}
+
+% Horodatage
+\def\testdateparts#1{\dateparts#1\relax}
+\def\dateparts#1 #2 #3 #4 #5\relax{
+    \marginpar{\scriptsize\mbox{#1 #2 #3 #5}}
+}
+
+\def\thelecture{}%
+\newcommand{\lecture}[3]{
+    \def\thelecture{Leçon #1 : #3}
+    \subsection*{\thelecture}
+    \selectlanguage{english}
+    \testdateparts{#2}
+    \selectlanguage{french}
+    %\marginpar{\scriptsize #2}
+}
+
+% Pour obtenir une numérotation des équations de la forme
+% Section.Numéro
+\usepackage{chngcntr}
+\counterwithin{equation}{section}

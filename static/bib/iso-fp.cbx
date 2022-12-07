@@ -1,0 +1,15 @@
+\ProvidesFile{iso-fp.cbx}
+  [2020/03/25 v0.1.0 ISO 690 biblatex citation style - FP Version]
+
+\RequireCitationStyle{numeric}
+\RequireCitationStyle{iso-fullcite}
+
+% Format \parencite with parentheses instead of brackets
+\DeclareCiteCommand{\parencite}[\mkbibparens]% <---- was \mkbibbrackets
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\endinput
