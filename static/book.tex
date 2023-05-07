@@ -1,21 +1,27 @@
 \usepackage[inner=3cm, outer=2.2cm, top=2.7cm, bottom=3cm,
             headheight=16pt]{geometry}
 
-\renewcommand{\thechapter}{\Roman{chapter}}
 \usepackage[Rejne]{fncychap}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]%
-{\markboth{\MakeUppercase{#1}}{}}
+{\markboth{\thechapter.\ \textsc{#1}}{}}
 \renewcommand{\sectionmark}[1]%
-{\markright{#1}}
+{\markright{\thesection.\ #1}}
 \fancyhf{}
 \fancyhead[LE,RO]{\thepage}
-\fancyhead[CO]{\textbf{\thesection.\ \rightmark}}
-\fancyhead[CE]{\textbf{\thechapter.\ \leftmark}}
-\renewcommand{\footrulewidth}{0.4pt}
-\fancyfoot[LE]{\theauthor}
-\fancyfoot[RO]{\thedate}
+\fancyhead[CO]{\rightmark}
+\fancyhead[CE]{\leftmark}
+%\renewcommand{\footrulewidth}{0.4pt}
+%\fancyfoot[LE]{}
+%\fancyfoot[RO]{\thedate}
+
+\fancypagestyle{plain}{%
+  \fancyhf{} % remove everything
+  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[C]{\thepage}
+}
 
 \def\thelecture{}%
 \newcommand{\lecture}[3]{

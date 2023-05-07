@@ -1,22 +1,30 @@
-\documentclass[a4paper, 11pt]{article}
+\documentclass[a4paper, 11pt]{book}
 \input{./static/preamble.tex}
-\input{./static/article.tex}
-% \input{./static/book.tex}
+\input{./static/book.tex}
 \makeatletter
-\title{Master Thesis}\let\thetitle\@title
+\title{Mémoire de Master\\Version 0.a.07052023}\let\thetitle\@title
 \date{\textsc{Année Académique 2022--2023}}\let\thedate\@date
-% \author{\emph{Notes de cours par} Benjamin Dosse}\let\theauthor\@author
+\author{Benjamin Dosse}\let\theauthor\@author
 \makeatother
 \begin{document}
-% \frontmatter
+\frontmatter
 \maketitle
+\begingroup
+\pagestyle{empty}
+\null
+\newpage
+\endgroup
+\printnomenclature
 \tableofcontents
-% \mainmatter
+\mainmatter
+
 % start lectures
-    \input{lec_05.tex}
-    \input{lec_06.tex}
+    \input{lec_00.tex}
+    \input{lec_01.tex}
+    \input{lec_02.tex}
+    \input{lec_07.tex}
 % end lectures
-\printbibliography
-\addcontentsline{toc}{section}{Références}
-% \addcontentsline{toc}{chapter}{Bibliographie}
+
+\nocite{*}
+\printbibliography[heading=bibintoc]
 \end{document}
