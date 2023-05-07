@@ -12,18 +12,24 @@
 \usepackage[T1]{fontenc}
 
 \usepackage{hyperref}
+
+\usepackage{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Liste des symboles}
+
 \usepackage[shortlabels]{enumitem}
 \usepackage{parskip}
 
 % Bibliographie & ToC
 \setcounter{tocdepth}{3}
-\usepackage[citestyle=numeric,style=./static/bib/iso-fp,backend=biber]{biblatex}
+\usepackage[style=numeric,backend=biber,sorting=none]{biblatex}
 \addbibresource{./static/bib/sources.bib}
 
 % Paquets math
 \usepackage{amsfonts, amsmath, amsthm, amssymb}
 \usepackage{mathrsfs}
 
+\usepackage[noabbrev]{cleveref}
 \input{./static/thm-env.tex}
 
 \newcommand{\Set}[1]{\mathbb{#1}}
@@ -51,6 +57,9 @@
 \newcommand{\nP}{\mathbb{P}}
 \newcommand{\nE}{\mathbb{E}}
 \newcommand{\Esp}[1]{\nE\left[#1\right]}
+
+\DeclareMathOperator{\Pois}{Pois}
+\newcommand{\corr}{\Gamma}
 
 \newcommand{\floor}[1]{\lfloor#1\rfloor}
 \newcommand{\abs}[1]{\left|#1\right|}

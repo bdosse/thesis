@@ -1,31 +1,52 @@
-\lecture{2}{ven. 02 déc. 2022 23:03}{Processus harmonisables}
+\lecture{2}{ven. 02 déc. 2022 23:40}{Extensions à $\R^d$}
+\label{chp:extensions}
 
-La notion de processus harmonisable est présentée par
-M. Loève~\cite{loeve1945}. Dans ce chapitre, on notera
-$\corr_X(t_1,t_2)$ l'auto-corrélation d'un processus centré $X$ aux
-temps $t_1, t_2$, pour autant que $\Esp{|X|^2} < \infty$. S'il existe
-une fonction d'auto-corrélation $\gamma$ de variation bornée telle
-que\footnote{On observe clairement une composante d'un produit
-vectoriel, ou bien un déterminant. Essayer d'investiguer dans la
-direction de ces notations.}  \[ \corr_X(t_1,t_2) = \iint e^{i(t_1s_1
-- t_2s_2)} d\gamma(s_1,s_2) ,\] alors on dira que $\corr_X$ est
-\emph{harmonisbale}.
+On dispose de plusieurs méthodes permettant d'étendre le mouvement
+Brownien fractionnaire dans l'espace euclidien $\R^d$ ; on introduit
+alors les notions d'extensions isotrope\footnote{On utilise les
+  matrices orthogonales pour introduire l'isotropie ; ça revient à
+  demander l'invariance par une isométrie~(\cite{ayache2018}).}
+(processus de Lévy) et non-isotrope (drap brownien). Ces techniques
+sont reprises et étudiées dans le cas d'un mouvement Brownien
+multifractionnaire.
 
-\nomenclature{$\corr_X$}{Fonction d'auto-corrélation d'un processus
-  $X \in L^2(\Omega)$}
+\begin{question}
+  Ce qui suit évoque des généralisations à $\R^d$ des mBf et mBm ; ne
+  devrait-on pas également au moins évoquer le cas du mB standard
+  (même si $B = B_H$ avec $H=\frac{1}{2}$) ?
+\end{question}
 
-On dira qu'un processus $X\in L^2(\Omega)$ est un \emph{processus
-  harmonisable} s'il existe une variable aléatoire $Y\in L^2(\Omega)$
-telle que $\corr_Y$ est harmonisable et telle que
-\[ X(t) = \int e^{its} dY(s) \] où l'égalité est entendue au sens de
-la convergence presque sûre. Nous allons montrer qu'un processus est
-harmonisable si, et seulement si, sa fonction d'auto-corrélation est
-harmonisable. Nous donnerons ensuite des \emph{représentations
-  harmonisables} de tels processus, tout en donnant quelques
-propriétés remarquables de ceux-ci.
+\section{Cas du mBf}
+\subsection{Mouvement Brownien fractionnaire de Lévy}
+Il s'agit de l'extension isotrope, \emph{i.e.} là où apparaît une
+valeur absolue pour le mBf, on fait apparaître une norme sur $\R^d$ ;
+dès lors, l'exposant de Hurst est identique quelle que soit la
+direction considérée.
 
+\subsection{Drap Brownien fractionnaire}
+La norme du mBf de Lévy est remplacée par un produit tensoriel des
+covariances unidimensionnelles ; l'exposant de Hurst peut être
+différent selon la direction observée.
 
-\section{Représentation en série orthogonale}
-\section{Représentation intégrale}
-\section{Représentation en moyenne mobile}
-\section{Le cas du mouvement Brownien (multi)fractionnaire}
+\section{Cas du mBm}
+Les paramètres vivent dans $\R^d$, donc il faut définir une fonction
+de Hurst $H:\R^d \to \oset{0}{1}$. Les représentations sont intégrales
+: on impose de plus que $H$ soit mesurable.
+\subsection{Extension isotrope}
+Les constructions sont similaires au mBf.
+\subsection{Extension anisotrope}
+Les constructions sont similaires au mBf.
+\subsection{Régularité des extensions}
+La régularité dépend évidemment de la régularité de la fonction de
+Hurst $H$ ; \textsc{Herbin}~(\cite{herbin2002}) exhibe une propriété
+intéressante (dans le cas isotrope) : si $H \in C^\beta(\R^d)$, alors
+on peut contrôler la variance des accroissements en fonction de
+$\max{\beta, H(t)}$. On a une propriété similaire dans le cas
+anisotrope.
+
+\subsection{Du fBm au mBm}
+\vspace{0.2em}
+\begin{alert}
+  À chaque fois (ou presque), on peut disposer d'une représentation
+  intégrale ; ça serait dommage de ne pas en parler.
+\end{alert}

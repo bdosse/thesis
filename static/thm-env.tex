@@ -18,16 +18,56 @@
 
 \declaretheoremstyle[
   headfont=\normalfont\bfseries\scshape,
+  bodyfont=\normalfont\itshape,
+  qed=$\blacksquare$]{unprovedthm}
+  
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries\scshape,
 bodyfont=\normalfont\itshape,
-mdframed={ nobreak }]{thmboxed}
+mdframed={ nobreak }
+]{thmboxed}
+
+\declaretheoremstyle[
+  headfont=\normalfont\bfseries\scshape,
+bodyfont=\normalfont\itshape,
+%mdframed={ nobreak }
+]{thmunboxed}
 
 \declaretheoremstyle[
   headfont=\normalfont\bfseries\scshape,
   mdframed={ nobreak }]{defboxed}
 
 \declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+    }
+]{alertbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RoyalBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RoyalBlue, backgroundcolor=RoyalBlue!5,
+    }
+]{neutralbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{BurntOrange!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=BurntOrange, backgroundcolor=BurntOrange!5,
+    }
+]{questionbox}
+
+
+\declaretheoremstyle[
   headfont=\normalfont\bfseries\scshape
-  ]{defunboxed}
+]{defunboxed}
 
 \declaretheoremstyle[
   headfont=\normalfont\bfseries,
@@ -37,74 +77,107 @@ mdframed={ nobreak }]{thmboxed}
 
 \declaretheorem[
   numberwithin=section,
-  style=defboxed,
-  name=Définition
+  style=defunboxed,
+  name=Définition,
+  Refname={Définition,Définitions}
 ]{definition}
 
 \declaretheorem[
   sibling=definition,
-  style=thmboxed,
-  name=Lemme
+  style=thmunboxed,
+  name=Lemme,
+  Refname={Lemme,Lemmes}
 ]{lemme}
 
 \declaretheorem[
   sibling=definition,
-  style=thmboxed,
-  name=Proposition
+  style=thmunboxed,
+  name=Proposition,
+  Refname={Proposition,Propositions}
 ]{proposition}
 
 \declaretheorem[
   sibling=definition,
-  style=thmboxed,
-  name=Théorème
+  style=thmunboxed,
+  name=Théorème,
+  Refname={Théorème,Théorèmes}
 ]{theoreme}
 
 \declaretheorem[
   sibling=definition,
-  style=thmboxed,
-  name=Corollaire
+  style=thmunboxed,
+  name=Corollaire,
+  Refname={Corollaire,Corollaires}
 ]{corollaire}
 
 \declaretheorem[
   sibling=definition,
-  style=unprovedthmboxed,
-  name=Lemme
+  style=unprovedthm,
+  name=Lemme,
+  Refname={Lemme,Lemmes}
 ]{ulemme}
 
 \declaretheorem[
   sibling=definition,
-  style=unprovedthmboxed,
-  name=Proposition
+  style=unprovedthm,
+  name=Proposition,
+  Refname={Proposition,Propositions}
 ]{uproposition}
 
 \declaretheorem[
   sibling=definition,
-  style=unprovedthmboxed,
-  name=Théorème
+  style=unprovedthm,
+  name=Théorème,
+  Refname={Théorème,Théorèmes}
 ]{utheoreme}
 
 \declaretheorem[
   sibling=definition,
-  style=unprovedthmboxed,
-  name=Corollaire
+  style=unprovedthm,
+  name=Corollaire,
+  Refname={Corollaire,Corollaires}
 ]{ucorollaire}
+
+\declaretheorem[
+  numbered=no,
+  style=alertbox,
+  name=Attention,
+  Refname={Attention,Attentions}
+]{alert}
+
+\declaretheorem[
+  numbered=no,
+  style=neutralbox,
+  name=Prérequis,
+  Refname={Prérequis,Prérequis}
+]{prerequis}
+
+\declaretheorem[
+  numbered=no,
+  style=questionbox,
+  name=Question,
+  Refname={Question,Questions}
+]{question}
 
 \declaretheorem[
   sibling=definition,
   style=defunboxed,
-  name=Remarque
+  name=Remarque,
+  Refname={Remarque,Remarques}
 ]{remarque}
 
 \declaretheorem[
   numbered=no,
   style=defunboxed,
-  name=Exemple
+  name=Exemple,
+  Refname={Exemple,Exemples}
 ]{exemple}
 
 \declaretheorem[
   numbered=no,
   style=defunboxed,
-  name=Notation
+  name=Notation,
+  Refname={Notation,Notations}
 ]{note}
 
 \declaretheorem[

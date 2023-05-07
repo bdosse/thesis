@@ -1,0 +1,86 @@
+\lecture{0}{mer. 5 avril 2023 15:03}{Introduction}
+
+L'aléa intervenant dans notre environnement peut être représenter à
+l'aide de variables aléatoires. L'exemple canonique est le lancer de
+dés : la variable aléatoire est la valeur prise par le dé après le
+lancer, et elle suit une loi dite uniforme -- toutes les valeurs
+possibles ont une probabilité égale de survenir, si on considère que
+le dé n'est pas truqué.
+
+Il existe des exemples moins triviaux : on peut se demander comment
+modéliser, à partir de variables aléatoires, l'évolution d'une file
+d'attente. Pour tout instant $t$ (positif ou nul), on note $N_t$ le
+nombre de personnes dans la file d'attente. On suppose qu'à l'instant
+$t=0$, la file d'attente est vide, et que le nombre de personnes
+arrivant dans la file durant un intervalle de temps $T_1$ ne dépend
+pas du nombre de personnes arrivant dans la file durant un intervalle
+$T_2$ (supposé différent de $T_1$). De plus, on suppose que pour tout
+intervalle de temps $T_0$ de durée $t_0$, le nombre de personnes
+arrivant dans la file suit une loi de Poisson de paramètre $\lambda
+t_0$ avec $\lambda>0$. En résumé, nous imposons que la famille
+$N=\{N_t:t\geq 0\}$ vérifie les conditions suivantes :
+\begin{itemize}
+\item $N_0 = 0$
+\item Pour tout $t\geq 0$, $N_t \sim \Pois(\lambda t)$
+\item Quels que soient $0\leq s_1<t_1<s_2<t_2$, $N_{s_1} - N_{t_1}$
+  est indépendant de $N_{s_2} - N_{t_2}$.
+\end{itemize}
+Remarquons que pour cet exercice, assez simple, nous désirions
+modéliser non plus \emph{l'état} (variable aléatoire) d'un objet, mais
+\emph{l'évolution} (famille de variables aléatoires) de cet
+objet. Cette distinction nous permet d'introduire la notion de
+\emph{processus aléatoire}, ou, plus communément, de \emph{processus
+  stochastique}
+
+Parmi la classe des processus stochastiques, l'un d'entre eux revêt
+une importance toute particulière : le mouvement Brownien. Depuis sa
+première étude par le botaniste Robert Brown (1773-1858) dans les
+années 1830, celui-ci s'est vu appliqué dans divers domaines des
+activités humaines. En 1901, Louis Bachelier (1870-1946), sous la
+direction d'Henri Poincaré (1854-1912), écrit une thèse de doctorat
+nommé \og Théorie de la spéculation \fg{}, dans lequel il développe un
+modèle mathématique de mouvement Brownien et l'applique à la finance
+pour décrire l'évolution des prix des actions à la bourse de
+Paris.
+
+Alors qu'il étudie la théorie cinétique des gaz, Albert Einstein
+(1879-1955) propose de lier le déplacement de particules (supposées
+suivre une trajectoire Brownienne) à des quantités physiques. Pour ce
+faire, il n'étudie qu'une composante de la position des particules, et
+dérive une équation aux dérivées partielles
+
+\begin{equation*}
+  \frac{\partial p_t}{\partial t} = D \frac{\partial^2 p_t}{\partial x^2}
+\end{equation*}
+
+où $p_t(x)$ est la densité de probabilité qu'une particule se situe en
+$x$ à l'instant $t$, et où $D$ est le \emph{coefficient de diffusion}
+des particules dans l'environnement. Si on suppose un nombre $N$ de
+particules à la position $x=0$ en le temps $t=0$, alors une solution
+de cette équation est
+\begin{equation*}
+  p_t(x) = \frac{N}{\sqrt{4\pi Dt}}\exp(\frac{-x^2}{4Dt}).
+\end{equation*}
+En particulier, si $X_t$ est une variable aléatoire de densité $p_t$,
+on observe que $\Esp{X_t} = 0$ et $\Esp{X_t^2} = 2Dt$, ce qui montre
+que la distance parcourue par une telle particule ne dépend pas
+linéairement du temps, mais de la racine carrée de celui-ci.
+
+Norbert Wiener (1894-1964), en 1923, propose une définition du
+mouvement Brownien à partir des outils de la théorie de la mesure, et
+prouve la continuité presque sûre des trajectoires du mouvement
+Brownien.
+
+\section{À faire / À chercher}
+\begin{itemize}
+\item Revoir l'introduction
+\item Liens avec les séries temporelles
+\item Temps local d'un processus : applicable aux semimartingales, et
+  le mBf n'est pas une semimartingale (ni le mBm).
+\item Trouver des applications : le mBf est populaire, le mBm un peu
+  moins (voir
+  \href{https://team.inria.fr/anja/english-theoretical-aspects/multifractional-brownian-motion/multifractional-brownian-motion-bibliography/}{cette page de l'INRIA}
+  au cas où)
+\item Ajouter quelques illustrations (utiliser \textsc{R} +
+  \textsc{Python} pour ne pas perdre trop de temps sur ce point).
+\end{itemize}
