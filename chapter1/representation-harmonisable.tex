@@ -1,0 +1,65 @@
+\section{Représentation harmonisable}
+La notion de processus harmonisable est présentée par
+M. \textsc{Loève}~(\cite{loeve1978}). Dans ce chapitre, on notera
+$\corr_X(t_1,t_2)$ l'auto-corrélation d'un processus centré $X$ aux
+temps $t_1, t_2$, pour autant que $\Esp{|X|^2} < \infty$. S'il existe
+une fonction d'auto-corrélation $\gamma$ de variation bornée telle
+que\footnote{On observe clairement une composante d'un produit
+  vectoriel, ou bien un déterminant. Essayer d'investiguer dans la
+  direction de ces notations.}
+\[ \corr_X(t_1,t_2) = \iint e^{i(t_1s_1 - t_2s_2)} d\gamma(s_1,s_2)
+  ,\] alors on dira que $\corr_X$ est \emph{harmonisable}.
+
+\begin{prerequis}
+  Il faut introduire l'intégrale de Riemann-Stieltjes pour les
+  processus (\cite[p.~138]{loeve1978}) pour donner un sens à la double
+  intégrale ci-dessus et à l'intégrale ci-dessous.
+\end{prerequis}
+
+\nomenclature{$\corr_X$}{Fonction d'auto-corrélation d'un processus
+  $X \in L^2(\Omega)$}
+
+On dira qu'un processus $X\in L^2(\Omega)$ est un \emph{processus
+  harmonisable} s'il existe une variable aléatoire $Y\in L^2(\Omega)$
+telle que $\corr_Y$ est harmonisable et telle que
+\begin{equation}
+  \label{eqn:rep-harm-proc}
+  X(t) = \int e^{its} dY(s)
+\end{equation}
+où l'égalité est entendue au sens de la convergence presque sûre. Nous
+allons montrer qu'un processus est harmonisable si, et seulement si,
+sa fonction d'auto-corrélation est harmonisable. Nous donnerons
+ensuite des \emph{représentations harmonisables} de tels processus,
+tout en donnant quelques propriétés remarquables de ceux-ci.
+
+\begin{alert}
+  On obtient une \og transformée de \emph{Fourier-Stieltjes} \fg{}. On
+  peut trouver une sorte d'inverse (convergence en moyenne
+  quadratique).
+\end{alert}
+
+\subsection{Représentation en série orthogonale}
+
+\begin{alert}
+  Ajout d'un post-it (\cite[p.~143]{loeve1978}).
+\end{alert}
+
+\textsc{Loève} présente deux décompositions : un développement à la
+Taylor et une décomposition par des fonctions dites
+\emph{propres}\footnote{Utilisation du théorème de Mercer, à renvoyer
+  en annexe ?}. Après un développement peu amusant, on définit ce
+qu'est un processus de second ordre stationnaire. En particulier un
+processus de second ordre\footnote{C'est à dire, qui admet des moments
+  d'ordre deux finis} qui est de plus stationnaire est un processus de
+second ordre stationnaire.
+
+\subsection{Représentation intégrale}
+On donne ici une condition nécessaire et suffisante pour obtenir une
+représentation de la forme~(\ref{eqn:rep-harm-proc}) : être
+stationnaire et continu en un point.
+
+\begin{alert}
+  Les liens ne sont pas très clairs entre les différentes
+  décompositions, ni comment elles peuvent être appliquées afin
+  d'extraire de l'information sur les processus.
+\end{alert}

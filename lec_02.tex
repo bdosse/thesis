@@ -1,52 +1,7 @@
 \lecture{2}{ven. 02 déc. 2022 23:40}{Extensions à $\R^d$}
+\chapter{Extensions à $\R^d$}
 \label{chp:extensions}
 
-On dispose de plusieurs méthodes permettant d'étendre le mouvement
-Brownien fractionnaire dans l'espace euclidien $\R^d$ ; on introduit
-alors les notions d'extensions isotrope\footnote{On utilise les
-  matrices orthogonales pour introduire l'isotropie ; ça revient à
-  demander l'invariance par une isométrie~(\cite{ayache2018}).}
-(processus de Lévy) et non-isotrope (drap brownien). Ces techniques
-sont reprises et étudiées dans le cas d'un mouvement Brownien
-multifractionnaire.
-
-\begin{question}
-  Ce qui suit évoque des généralisations à $\R^d$ des mBf et mBm ; ne
-  devrait-on pas également au moins évoquer le cas du mB standard
-  (même si $B = B_H$ avec $H=\frac{1}{2}$) ?
-\end{question}
-
-\section{Cas du mBf}
-\subsection{Mouvement Brownien fractionnaire de Lévy}
-Il s'agit de l'extension isotrope, \emph{i.e.} là où apparaît une
-valeur absolue pour le mBf, on fait apparaître une norme sur $\R^d$ ;
-dès lors, l'exposant de Hurst est identique quelle que soit la
-direction considérée.
-
-\subsection{Drap Brownien fractionnaire}
-La norme du mBf de Lévy est remplacée par un produit tensoriel des
-covariances unidimensionnelles ; l'exposant de Hurst peut être
-différent selon la direction observée.
-
-\section{Cas du mBm}
-Les paramètres vivent dans $\R^d$, donc il faut définir une fonction
-de Hurst $H:\R^d \to \oset{0}{1}$. Les représentations sont intégrales
-: on impose de plus que $H$ soit mesurable.
-\subsection{Extension isotrope}
-Les constructions sont similaires au mBf.
-\subsection{Extension anisotrope}
-Les constructions sont similaires au mBf.
-\subsection{Régularité des extensions}
-La régularité dépend évidemment de la régularité de la fonction de
-Hurst $H$ ; \textsc{Herbin}~(\cite{herbin2002}) exhibe une propriété
-intéressante (dans le cas isotrope) : si $H \in C^\beta(\R^d)$, alors
-on peut contrôler la variance des accroissements en fonction de
-$\max{\beta, H(t)}$. On a une propriété similaire dans le cas
-anisotrope.
-
-\subsection{Du fBm au mBm}
-\vspace{0.2em}
-\begin{alert}
-  À chaque fois (ou presque), on peut disposer d'une représentation
-  intégrale ; ça serait dommage de ne pas en parler.
-\end{alert}
+\input{chapter2/introduction.tex}
+\input{chapter2/mbf.tex}
+\input{chapter2/mbm.tex}

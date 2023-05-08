@@ -1,0 +1,61 @@
+\section{Mouvement Brownien fractionnaire}
+\subsection{Définition et propriétés}
+
+Le mouvement Brownien fractionnaire (on écrira mBf à partir de
+maintenant) est \emph{une} gé\-né\-ra\-li\-sa\-tion du mouvement
+Brownien. Cette gé\-né\-ra\-li\-sa\-tion permet de définir la
+régularité (au sens de Hölder) des trajectoires du processus. Pour
+cela, on utilise l'exposant (dit \emph{de Hurst}) $H$.
+
+\begin{question}
+  Problème de l'estimation de $H$ : a-t-il sa place dans ce document ?
+\end{question}
+
+Lévy propose d'utiliser l'intégrale de Riemann-Liouville(-Itô) pour
+définir le mBf :
+\begin{equation}
+  B_H = \frac{1}{\Gamma(H + \frac{1}{2})} \int_0^t (t-s)^{H-\frac{1}{2}} dB(s)
+\end{equation}
+
+Or, d'après~\cite{mandelbrot1968}, \emph{\og cette intégrale accorde
+  bien trop d'importance à l'origine pour beaucoup d'applications
+  \fg{}}. La re\-pré\-sen\-ta\-tion de Weyl est alors proposée :
+\begin{gather}
+  B_H(0) = 0\\
+  B_H(t) = \frac{1}{\Gamma(H+\frac{1}{2})}\left(\int_{-\infty}^0(t-s)^{H-\frac{1}{2}}-(-s)^{H-\frac{1}{2}}dB(s) + \int_0^t(t-s)^{H-\frac{1}{2}}dB(s) \right)
+\end{gather}
+où les égalités ont lieu p.s.
+
+\begin{alert}
+  Donner la définition du mBf \emph{via} l'espérance.
+\end{alert}
+
+\begin{alert}
+  On obtient gratuitement une représentation intégrale du mBf grâce à
+  la re\-pré\-sen\-ta\-tion de Weyl. Il suffira de calculer l'espérance.
+\end{alert}
+
+\subsection{Propriétés et régularité}
+L'exposant de Hurst modifie la régularité trajectorielle du fBm, mais
+modifie également quelques propriétés en comparaison du mouvement
+Brownien standard. Le mBf est auto-similaire, mais ses incréments ne
+sont pas indépendants, et il ne s'agit pas d'une semimartingale.
+
+\begin{prerequis}
+  On peut définir ce qu'est une semimartingale, mais il faut alors
+  définir ce qu'est une martingale locale. Soit on suppose que c'est
+  connu, soit on donne tout de même quelques propriétés de ces objets.
+\end{prerequis}
+
+On peut définir \emph{plusieurs} intégrales stochastiques pour le fBm
+: voir~\cite[Chp.~II-V]{biagini2008}. C'est moins agréables qu'avec le
+mouvement Brownien standard.
+
+Tout comme pour le mouvement Brownien standard, on utilise le théorème
+de Kolmogorov-Centsov pour établir la régularité des trajectoires du
+fBm.
+
+\begin{alert}
+  \textsc{Biagini} énonce que le fBm possède une mémoire longue. Cette
+  propriété est davantage étudiée pour les séries temporelles.
+\end{alert}
