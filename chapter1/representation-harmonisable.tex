@@ -10,11 +10,34 @@ que\footnote{On observe clairement une composante d'un produit
 \[ \corr_X(t_1,t_2) = \iint e^{i(t_1s_1 - t_2s_2)} d\gamma(s_1,s_2)
   ,\] alors on dira que $\corr_X$ est \emph{harmonisable}.
 
+\section{Intégrale stochastique}
+
 \begin{prerequis}
   Il faut introduire l'intégrale de Riemann-Stieltjes pour les
-  processus (\cite[p.~138]{loeve1978}) pour donner un sens à la double
-  intégrale ci-dessus et à l'intégrale ci-dessous.
+  processus (\cite[p.~138]{loeve1978}) pour donner un sens aux
+  intégrales.
 \end{prerequis}
+
+\begin{alert}
+  Insérer une référence vers la construction de l'intégrale d'Itô.
+\end{alert}
+
+L'intégrale d'Itô est une intégrale \emph{\og à la Riemann \fg{}} pour
+une classe de processus stochastiques. Cette définition de l'intégrale
+stochastique demande que les processus à intégrer soient, entre autres
+hypothèses, \emph{adaptés} à la filtration du mouvement Brownien.
+
+\begin{alert}
+  Il semblerait que \textsc{Loève} ne veut pas donner trop de détails
+  concernant la construction de l'intégrale : il s'agit d'une somme de
+  Riemann-Stieltjes, et si elle converge dans $L^2$, alors on dit que
+  c'est une intégrale ; sinon, on oublie.
+\end{alert}
+
+\begin{question}
+  Refaire le raisonnement avec les processus de la classe $\Cal{H}^2$
+  adaptés au processus par rapport auquel on intègre ?
+\end{question}
 
 \nomenclature{$\corr_X$}{Fonction d'auto-corrélation d'un processus
   $X \in L^2(\Omega)$}
@@ -50,7 +73,7 @@ Taylor et une décomposition par des fonctions dites
   en annexe ?}. Après un développement peu amusant, on définit ce
 qu'est un processus de second ordre stationnaire. En particulier un
 processus de second ordre\footnote{C'est à dire, qui admet des moments
-  d'ordre deux finis} qui est de plus stationnaire est un processus de
+  d'ordre deux finis.} qui est de plus stationnaire est un processus de
 second ordre stationnaire.
 
 \subsection{Représentation intégrale}
@@ -63,3 +86,8 @@ stationnaire et continu en un point.
   décompositions, ni comment elles peuvent être appliquées afin
   d'extraire de l'information sur les processus.
 \end{alert}
+
+\begin{question}
+  Que faire des résultats concernant la stabilité (dans $L^2$)
+  opérations de différentiation et d'intégration ?
+\end{question}
