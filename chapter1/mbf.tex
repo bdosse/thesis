@@ -1,4 +1,8 @@
 \section{Mouvement Brownien fractionnaire}
+\begin{alert}
+  Ajouter un rappel historique sur le mBf
+  (voir~\cite[p.~6]{biagini2008} et~\cite{mandelbrot1968}).
+\end{alert}
 \subsection{Définition et propriétés}
 
 Le mouvement Brownien fractionnaire (on écrira mBf à partir de
@@ -18,8 +22,9 @@ définir le mBf :
 \end{equation}
 
 Or, d'après~\cite{mandelbrot1968}, \emph{\og cette intégrale accorde
-  bien trop d'importance à l'origine pour beaucoup d'applications
-  \fg{}}. La re\-pré\-sen\-ta\-tion de Weyl est alors proposée :
+  bien trop d'importance à l'origine pour beaucoup
+  d'ap\-pli\-ca\-tions \fg{}}. La re\-pré\-sen\-ta\-tion de Weyl est
+alors proposée :
 \begin{gather}
   B_H(0) = 0\\
   B_H(t) = \frac{1}{\Gamma(H+\frac{1}{2})}\left(\int_{-\infty}^0(t-s)^{H-\frac{1}{2}}-(-s)^{H-\frac{1}{2}}dB(s) + \int_0^t(t-s)^{H-\frac{1}{2}}dB(s) \right)
@@ -27,13 +32,59 @@ Or, d'après~\cite{mandelbrot1968}, \emph{\og cette intégrale accorde
 où les égalités ont lieu p.s.
 
 \begin{alert}
-  Donner la définition du mBf \emph{via} l'espérance.
-\end{alert}
-
-\begin{alert}
   On obtient gratuitement une représentation intégrale du mBf grâce à
   la re\-pré\-sen\-ta\-tion de Weyl. Il suffira de calculer l'espérance.
 \end{alert}
+
+Nous proposons de définir le mouvement Brownien fractionnaire au moyen
+d'une fonction de covariance, puis de revenir à cette forme intégrale
+par la suite.
+
+\begin{definition}
+  Soit $H \in \oset{0}{1}$ ; un \emph{mouvement Brownien
+    fractionnaire} (on écrira mBf par la suite) \emph{d'exposant de
+    Hurst} $H$ est un processus gaussien centré
+  $B_H = \{B_H(t) : t \geq 0\}$ dont l'opérateur de covariance
+  $\corr(t,t')$ est donné par
+  \begin{equation}
+    \corr_{B_H}(t,t') = \Esp{B_H(t)B_H(t')} = \frac{1}{2}(t^{2H}-s^{2H}-|t-s|^{2H})
+  \end{equation}
+  et dont les trajectoires sont presque sûrement continues.
+\end{definition}
+
+\begin{alert}
+  Renvoyer en annexe le résultat donnant l'existence d'un processus
+  gaussien pour un opérateur de covariance donné.
+\end{alert}
+
+\begin{remarque}
+  Si $H=\frac{1}{2}$, on obtient un mouvement Brownien standard.
+  \begin{alert}
+    Faire le calcul.
+  \end{alert}
+\end{remarque}
+
+On peut d'ores et déjà donner des propriétés fondamentales du mBf.
+
+\begin{proposition}
+  Soient $H\in\oset{0}{1}$ et $B_H = \{B_H(t) : t\geq 0\}$ un fBm. On
+  a :
+  \begin{enumerate}
+  \item $B_H(0) = 0$ p.s.
+  \item $B_H$ est à accroissements stationnaires
+  \item $B_H$ est un processus gaussien tel que $\Esp{B_H(t)^2} = t^{2H}$
+  \end{enumerate}
+\end{proposition}
+\begin{alert}
+  Démonstration à faire.
+\end{alert}
+
+\begin{question}
+  Comment apporter les distinctions portant sur les valeurs possibles
+  de $H$ : évoquer tout de go que le cas $H=\frac{1}{2}$ crée
+  naturellement cette distinction, ou attendre que cela émerge des
+  calculs ?
+\end{question}
 
 \subsection{Propriétés et régularité}
 L'exposant de Hurst modifie la régularité trajectorielle du fBm, mais
