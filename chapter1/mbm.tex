@@ -14,22 +14,64 @@ représentation intégrale et de générateurs.
   pour quelques articles.
 \end{prerequis}
 
+Un générateur est une intégrale stochastique (bien choisie) par
+rapport au bruit gaussien (transformation de Fourier d'un mouvement
+Brownien).
+
+Si on note $X(u,v)$ un générateur, alors $Y(t) = X(t, H(t))$ est un
+mBm (cette construction considère déjà $t\in\R^d$).
+
 Il existe des liens évidents avec le mBf : il suffit de choisir une
 fonction constante.
 
+\begin{alert}
+  Écrire le théorème d'existence de l'événement de probabilité $1$
+  dont il est question dans la Proposition suivante.
+\end{alert}
+
+\begin{proposition}
+  Supposons que $\Omega^*$ bien choisie est de mesure $1$ ; la
+  continuité de $H$ implique la continuité de $Y(\cdot,\omega)$ sur
+  $\R^d$ pour tout $\omega\in\Omega^*$.
+  \begin{alert}
+    On a une réciproque.
+  \end{alert}
+\end{proposition}
+
 \begin{question}
   Que peut-on dire de l'auto-similarité du mBm ?
+  Voir~\cite[Définitions~(1.69) et~(1.70)]{ayache2018}. Le
+  Théorème~1.91 de~\cite{ayache2018} répond à la question.
 \end{question}
 
-\begin{prerequis}
+\begin{piste}
   On peut définir (au moins) une intégrale stochastique pour le
-  mBm. C'est assez difficile, dans le sens où il faut utiliser des
-  outils qui (je crois) n'ont pas encore été vu ou ne sont pas au
-  programme actuellement.
-\end{prerequis}
+  mBm. C'est assez difficile~(\cite{lebovits2014}), dans le sens où il
+  faut utiliser des outils qui (je crois) n'ont pas encore été vu ou
+  ne sont pas au programme actuellement. On peut
+  explorer~\cite{herbin2012}.
+\end{piste}
+
+\begin{piste}
+  Considérer une fonction aléatoire suffisamment régulière pour la
+  fonction $H(t)$.
+\end{piste}
 
 \subsection{Régularité}
+
+\begin{question}
+  Est-il nécessaire de rappeler les notions vues lors des projets des
+  cours d'Espaces Fonctionnels ? Renvois en annexe ?
+\end{question}
+
 Sont données quelques propriétés trajectorielles, dont des conditions
 nécessaires et suffisantes sur la fonction $H$ pour la continuité du
 mBm. Des résultats concernant la régularité (globale, locale, et
 ponctuelle) de Hölder sont démontrés.
+
+\begin{prerequis}
+  Temps local ; on montre qu'un temps local suffisamment régulier
+  implique que, presque sûrement, les trajectoires du processus ne
+  sont pas dérivables (voir \emph{\og le principe de Bernam
+    \fg{}}~\cite[Sec.~2.3]{ayache2018}).
+\end{prerequis}

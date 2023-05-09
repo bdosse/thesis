@@ -56,6 +56,15 @@ bodyfont=\normalfont\itshape,
 ]{neutralbox}
 
 \declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{OliveGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=OliveGreen, backgroundcolor=OliveGreen!5,
+    }
+]{greenbox}
+
+\declaretheoremstyle[
     headfont=\bfseries\sffamily\color{BurntOrange!70!black}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
@@ -158,6 +167,13 @@ bodyfont=\normalfont\itshape,
   name=Question,
   Refname={Question,Questions}
 ]{question}
+
+\declaretheorem[
+  numbered=no,
+  style=greenbox,
+  name=Piste,
+  Refname={Piste,Pistes}
+]{piste}
 
 \declaretheorem[
   sibling=definition,
