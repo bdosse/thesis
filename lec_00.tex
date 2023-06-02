@@ -14,15 +14,15 @@
     temporelle. On peut estimer sa fonction exposant de Hurst, mais
     A. Deliège, dans son mémoire, semble indiquer que ce n'est pas une
     façon de faire commune.
-  \item Si on veut effectivement prédire le comportement d'une série
-    temporelle en estimant son exposant de Hurst, il faudrait pouvoir
-    (1) simuler une trajectoire d'un mBm qui passe par une collection
-    de point donné, et (2) imposer au dit mBm la fonction exposant de
-    Hurst ainsi estimée. Ça n'a pas l'air trivial. J'ai trouvé assez
-    peu d'information à ce sujet.
+  \item Pour estimer l'exposant de Hölder ponctuel d'une série
+    temporelle suivant le modèle du mBm, voir par
+    exemple~\cite{jin2017}. Pour l'estimation de l'exposant de Hurst,
+    on peut se référer à~\cite{coeurjolly2005, lebovits2018}
   \item Les références~\cite{garcin2016, garcin2021} peuvent être
     utiles à cet égard.
   \end{itemize}
+\item Concernant la représentation en ondelettes, prendre garde à
+  certaines subtilités (\cite{ayache2010}).
 \item Temps local d'un processus : \st{applicable aux semimartingales,
     et le mBf n'est pas une semimartingale (ni le mBm).}
   $\longrightarrow$ Ayache définit autrement le temps local,
