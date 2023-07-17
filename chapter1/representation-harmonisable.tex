@@ -77,6 +77,49 @@ processus de second ordre\footnote{C'est à dire, qui admet des moments
   d'ordre deux finis.} qui est de plus stationnaire est un processus de
 second ordre stationnaire.
 
+On sait que toute fonction $f\in L^2(\R)$ admet une décomposition en
+ondelettes de la forme
+\begin{equation*}
+  f = \sum_{j,k\in\Z} c_{j,k}\psi_{j,k}
+\end{equation*}
+où la famille
+${(\psi_{j,k})}_{j,k\in\Z} = \{2^{-\frac{j}{2}}\psi(2^j\cdot-k)\}$,
+définie à partir d'une fonction $\psi\in L^2(\R)$, forme une base
+orthonormée de l'espace $L^2(\R)$. On peut supposer qu'une telle
+décomposition existe également dans le cas des processus
+stochastiques, puisque ces processus peuvent être vus comme des
+fonctions à deux variables. Si une telle décomposition existe bien, il
+est nécessaire d'invoquer un outil d'analyse fonctionnel pour le
+démontrer. Si nous l'énonçons ici, nous renvoyons le lecteur à la
+Section~\ref{sec:mercers-theorem} pour en connaître une démonstration.
+
+\begin{theorem}[Théorème de Mercer]
+  \label{thm:mercers-theorem}
+  Soit $I$ un intervalle fermé de $\R$ et soit
+  \[ K : I\times I\to \R \] une fonction continue et symétrique. Si
+  $K$ est une fonction de type positif, alors il existe une base
+  orthonormée de fonctions continues $(e_k)_{k\in\N}$ de $L^2(I)$ et
+  des constantes $(c_k)_{k\in\N}$ positives ou nulles telles que
+  \begin{equation}
+    K(s,t) = \sum_{k\in\N} c_k e_k(s) e_k(t)
+  \end{equation}
+  où la convergence de la série est uniforme.
+\end{theorem}
+
+\begin{remarque}
+  Les fonctions $(e_j)_{j\in\N}$ intervenant dans le
+  \Cref{thm:mercers-theorem} sont des \og fonctions propres\fg{}
+  associées aux \og valeurs propres\fg{} $(c_k)_{k\in\N}$ pour
+  l'opérateur dont le noyau est défini par $K$\footnote{On pourra par
+    ailleurs trouver l'appellation de \emph{noyau de Mercer}.},
+  \emph{i.e.}
+  \begin{equation*}
+    \int K(s,t) e_k(t) dt = c_k e_k(t).
+  \end{equation*}
+\end{remarque}
+
+% Théorème de décomposition :
+
 \subsection{Représentation intégrale}
 On donne ici une condition nécessaire et suffisante pour obtenir une
 représentation de la forme~(\ref{eqn:rep-harm-proc}) : être
