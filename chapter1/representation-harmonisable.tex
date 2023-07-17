@@ -1,15 +1,24 @@
 \section{Représentation harmonisable}
-La notion de processus harmonisable est présentée par
-M. \textsc{Loève}~(\cite{loeve1978}). Dans ce chapitre, on notera
-$\corr_X(t_1,t_2)$ l'opérateur de covariance d'un processus $X$ aux
-temps $t_1, t_2$, pour autant que $\Esp{|X|^2} < \infty$. Sauf mention
-contraire, on supposera que $X$ est centré. S'il existe un opérateur
-de covariance $\gamma$ de variation bornée telle que\footnote{On
-  observe clairement une composante d'un produit vectoriel, ou bien un
-  déterminant. Essayer d'investiguer dans la direction de ces
-  notations.}
-\[ \corr_X(t_1,t_2) = \iint e^{i(t_1s_1 - t_2s_2)} d\gamma(s_1,s_2)
-  ,\] alors on dira que $\corr_X$ est \emph{harmonisable}.
+
+\begin{presentation}
+  La notion de processus harmonisable est présentée par
+  M. \textsc{Loève}~(\cite{loeve1978}). Dans ce chapitre, on notera
+  $\corr_X(t_1,t_2)$ l'opérateur de covariance d'un processus $X$ aux
+  temps $t_1, t_2$, pour autant que $\Esp{|X|^2} < \infty$. Sauf
+  mention contraire, on supposera que $X$ est centré. S'il existe un
+  opérateur de covariance $\gamma$ de variation bornée telle
+  que\footnote{On observe clairement une composante d'un produit
+    vectoriel, ou bien un déterminant. Essayer d'investiguer dans la
+    direction de ces notations.}
+  \[ \corr_X(t_1,t_2) = \iint e^{i(t_1s_1 - t_2s_2)} d\gamma(s_1,s_2)
+    ,\] alors on dira que $\corr_X$ est \emph{harmonisable}.
+\end{presentation}
+
+\begin{remarque}
+  Sans que cela n'occasionne d'ambiguïtés, nous noterons
+  $X\in L^2(\Omega)$ (voire $X\in L^2$ si le contexte est clair) pour
+  exprimer que $\Esp{|X(t)|^2} < \infty$ quel que soit $t\in I$.
+\end{remarque}
 
 \section{Intégrale stochastique}
 
@@ -119,6 +128,34 @@ Section~\ref{sec:mercers-theorem} pour en connaître une démonstration.
 \end{remarque}
 
 % Théorème de décomposition :
+Le théorème suivant assure, sous certaines conditions, l'existence
+d'une \og décomposition en ondelettes\fg{} d'un processus stochastique
+$X\in L^2$.
+
+\begin{theoreme}
+  \label{thm:orthogonal-decomp}
+  Soit $X = \{X(t) : t\in\cset{0}{T}\}$ un processus de $L^2(\Omega)$,
+  et supposons que $\corr_X$ soit continue sur
+  $\cset{0}{T}\times\cset{0}{T}$ ; le processus $X$ admet une
+  décomposition de la forme~\ref{eqn:orthogonal-decomp} si, et
+  seulement si, la suite de constante $(c_k)_{k\in\N}$ et la suite de
+  fonctions $(e_k)_{k\in\N}$ sont respectivement les valeurs propres
+  et les fonctions propres de $\corr_X$.
+\end{theoreme}
+\begin{alert}
+  \begin{proof}
+    À faire.
+  \end{proof}
+\end{alert}
+
+\begin{remarque}
+  La convergence de la série du~\Cref{thm:orthogonal-decomp} est uniforme.
+\end{remarque}
+\begin{alert}
+  \begin{proof}
+    À faire.
+  \end{proof}
+\end{alert}
 
 \subsection{Représentation intégrale}
 On donne ici une condition nécessaire et suffisante pour obtenir une
