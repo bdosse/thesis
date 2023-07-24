@@ -73,6 +73,14 @@ bodyfont=\normalfont\itshape,
     }
 ]{questionbox}
 
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{Fuchsia!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=Fuchsia, backgroundcolor=Fuchsia!5,
+    }
+]{presentationbox}
 
 \declaretheoremstyle[
   headfont=\normalfont\bfseries\scshape
@@ -174,6 +182,13 @@ bodyfont=\normalfont\itshape,
   name=Piste,
   Refname={Piste,Pistes}
 ]{piste}
+
+\declaretheorem[
+  numbered=no,
+  style=presentationbox,
+  name=Présentation,
+  Refname={Présentation,Présentations}
+]{presentation}
 
 \declaretheorem[
   sibling=definition,

@@ -1,68 +1,85 @@
 \section{Mouvement Brownien fractionnaire}
+
+Selon le théorème d'extension de Kolmogorov, il est possible de
+définir un processus stochastique gaussien à partir de son opérateur
+de covariance et de sa fonction moyenne. Nous proposons de définir de
+la sorte le mouvement Brownien fractionnaire, qui jouit de propriétés
+similaires au mouvement Brownien standard.
+
+Ses applications, nombreuses et transversales, suffisent à justifier
+l'étude sommaire ci-présentée. Pour de plus amples détails sur les
+propriétés génériques du mouvement Brownien fractionnaire, ou plus
+généralement, des processus $\alpha$-stables, on pourra consulter le
+livre de référence~\cite{samorodnitsky1994}. Concernant l'intégration
+stochastique définie à partir du mouvement Brownien fractionnaire,
+\cite{biagini2008} propose une étude détaillée de multiples
+définitions de ce type d'intégrales ; on trouvera en particulier des
+applications en finance et en théorie de la commande
+optimale. L'ouvrage~\cite{mishura2008} s'attache à étudier les
+équations différentielles stochastiques bâties sur ce processus.
+
 \begin{alert}
   Ajouter un rappel historique sur le mBf
   (voir~\cite[p.~6]{biagini2008} et~\cite{mandelbrot1968}).
 \end{alert}
 \subsection{Définition et propriétés}
 
-Le mouvement Brownien fractionnaire (on écrira mBf à partir de
-maintenant) est \emph{une} gé\-né\-ra\-li\-sa\-tion du mouvement
-Brownien. Cette gé\-né\-ra\-li\-sa\-tion permet de définir la
-régularité (au sens de Hölder) des trajectoires du processus. Pour
-cela, on utilise l'exposant (dit \emph{de Hurst}) $H$.
-
-\begin{question}
-  Problème de l'estimation de $H$ : a-t-il sa place dans ce document ?
-\end{question}
-
-Lévy propose d'utiliser l'intégrale de Riemann-Liouville(-Itô) pour
-définir le mBf :
-\begin{equation}
-  B_H = \frac{1}{\Gamma(H + \frac{1}{2})} \int_0^t (t-s)^{H-\frac{1}{2}} dB(s)
-\end{equation}
-
-Or, d'après~\cite{mandelbrot1968}, \emph{\og cette intégrale accorde
-  bien trop d'importance à l'origine pour beaucoup
-  d'ap\-pli\-ca\-tions \fg{}}. La re\-pré\-sen\-ta\-tion de Weyl est
-alors proposée :
-\begin{gather}
-  B_H(0) = 0\\
-  B_H(t) = \frac{1}{\Gamma(H+\frac{1}{2})}\left(\int_{-\infty}^0(t-s)^{H-\frac{1}{2}}-(-s)^{H-\frac{1}{2}}dB(s) + \int_0^t(t-s)^{H-\frac{1}{2}}dB(s) \right)
-\end{gather}
-où les égalités ont lieu p.s.
-
-\begin{alert}
-  On obtient gratuitement une représentation intégrale du mBf grâce à
-  la re\-pré\-sen\-ta\-tion de Weyl. Il suffira de calculer l'espérance.
-\end{alert}
-
-Nous proposons de définir le mouvement Brownien fractionnaire au moyen
-d'une fonction de covariance, puis de revenir à cette forme intégrale
-par la suite.
+Nous choisissons d'étudier le mouvement Brownien fractionnaire défini
+à partir de son opérateur de covariance. L'approche présentée ici est
+développée dans~\cite{ayache2018} ; notons que, historiquement, c'est
+par une intégrale stochastique qu'a été défini le mouvement Brownien
+fractionnaire (voir~\cite{mandelbrot1968} à ce propos).
 
 \begin{definition}
-  Soit $H \in \oset{0}{1}$ ; un \emph{mouvement Brownien
-    fractionnaire} (on écrira mBf par la suite) \emph{d'exposant de
-    Hurst} $H$ est un processus gaussien centré
-  $B_H = \{B_H(t) : t \geq 0\}$ dont l'opérateur de covariance
-  $\corr(t,t')$ est donné par
-  \begin{equation}
-    \corr_{B_H}(t,t') = \Esp{B_H(t)B_H(t')} = \frac{1}{2}(t^{2H}-s^{2H}-|t-s|^{2H})
-  \end{equation}
+  \label{def:mBf}
+  Soit $H\in\oset{0}{1}$ ; un processus stochastique
+  $B_H = \{B_H(t) : t\geq 0\}$ est un \emph{mouvement Brownien
+    fractionnaire}\index{mouvement Brownien fractionnaire} (noté dans
+  la suite \og mBf\fg{}) s'il s'agit d'un processus gaussien centré
+  dont l'opérateur de covariance $K_H$ est défini par
+  \[ K_H(t,s) = \Esp{B_H(t)B_H(s)} = \frac{1}{2}(t^{2H} + s^{2H} -
+    |t-s|^{2H}) \]
   et dont les trajectoires sont presque sûrement continues.
 \end{definition}
+
+\nomenclature{mBf}{Mouvement Brownien fractionnaire}
 
 \begin{alert}
   Renvoyer en annexe le résultat donnant l'existence d'un processus
   gaussien pour un opérateur de covariance donné.
 \end{alert}
 
+Il est clair que pour $H= \frac{1}{2}$, $B_H$ est un mouvement
+Brownien standard.
+
 \begin{remarque}
-  Si $H=\frac{1}{2}$, on obtient un mouvement Brownien standard.
-  \begin{alert}
-    Faire le calcul.
-  \end{alert}
+  Dans la~\Cref{def\string:mBf}, l'hypothèse d'un processus centré
+  peut être relâchée. Cela ne change fondamentalement aucun résultat
+  présenté ici. Nous la formulons afin de ne pas alourdir les
+  notations et les calculs.
 \end{remarque}
+
+Le lien avec le mouvement Brownien standard peut sembler nébuleux. La
+proposition suivante rend ce lien plus évident à l'aide d'une
+représentation intégrale\index{représentation intégrale!mouvement
+  Brownien fractionnaire}.
+
+\begin{proposition}[Représentation intégrale]
+  Soit $H\in\oset{0}{1}$ ; le processus définie explicitement par
+  \begin{gather*}
+    B_H(0) = 0 \\
+    B_H(t) - B_H(0) = c\left(\int_{-\infty}^0 (t-s)^{H- \frac{1}{2}} - (-s)^{H- \frac{1}{2} } dB(s) + \int_0^t (t-s)^{H- \frac{1}{2}} dB(s)\right)
+  \end{gather*}
+  où $c\in\oset{0}{\infty}$ est une constante, est un mBf.
+\end{proposition}
+
+\begin{alert}
+  On pourra écrire quelque part un rappel portant sur l'intégrale
+  d'Itô. Il faudra prendre soin de préciser que même si on ne l'a pas
+  étudié dans le cours \og Processus stochastiques\fg{} (2021--2022),
+  on peut définir une intégrale d'Itô impropre, \emph{e.g.} sur des
+  intervalles non bornés.
+\end{alert}
 
 On peut d'ores et déjà donner des propriétés fondamentales du mBf.
 
