@@ -1,7 +1,19 @@
 \usepackage[inner=3cm, outer=2.2cm, top=2.7cm, bottom=3cm,
             headheight=16pt]{geometry}
 
-\usepackage[Rejne]{fncychap}
+%\usepackage[Bjarne]{fncychap}
+
+\usepackage[pages=some]{background}
+\backgroundsetup{
+scale=1,
+color=black,
+opacity=0.1,
+angle=0,
+contents={%
+  \includegraphics[height=0.6\paperheight]{browniansheet.png}
+  }%
+}
+\usepackage{emptypage}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]%
@@ -26,7 +38,7 @@
 \def\thelecture{}%
 \newcommand{\lecture}[3]{
     \def\thelecture{#3}
-    \chapter{\thelecture}
+%    \chapter{\thelecture}
 }
 
 % Pour obtenir une numérotation des équations de la forme

@@ -2,10 +2,10 @@
 \usepackage{thmtools}
 \usepackage[framemethod=TikZ]{mdframed}
 \mdfsetup{skipabove=1em,
-  %skipbelow=0em,
-  %innertopmargin=5pt,
-  %innerbottommargin=5pt
-  }
+  skipbelow=0em,
+  innertopmargin=5pt,
+  innerbottommargin=5pt
+}
 
 \theoremstyle{definition}
 \makeatletter
@@ -56,6 +56,15 @@ bodyfont=\normalfont\itshape,
 ]{neutralbox}
 
 \declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{OliveGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=OliveGreen, backgroundcolor=OliveGreen!5,
+    }
+]{greenbox}
+
+\declaretheoremstyle[
     headfont=\bfseries\sffamily\color{BurntOrange!70!black}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
@@ -64,6 +73,14 @@ bodyfont=\normalfont\itshape,
     }
 ]{questionbox}
 
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{Fuchsia!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=Fuchsia, backgroundcolor=Fuchsia!5,
+    }
+]{presentationbox}
 
 \declaretheoremstyle[
   headfont=\normalfont\bfseries\scshape
@@ -158,6 +175,20 @@ bodyfont=\normalfont\itshape,
   name=Question,
   Refname={Question,Questions}
 ]{question}
+
+\declaretheorem[
+  numbered=no,
+  style=greenbox,
+  name=Piste,
+  Refname={Piste,Pistes}
+]{piste}
+
+\declaretheorem[
+  numbered=no,
+  style=presentationbox,
+  name=Présentation,
+  Refname={Présentation,Présentations}
+]{presentation}
 
 \declaretheorem[
   sibling=definition,

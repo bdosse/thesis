@@ -1,0 +1,171 @@
+\section{Mouvement Brownien fractionnaire}
+
+Selon le théorème d'extension de Kolmogorov, il est possible de
+définir un processus stochastique gaussien à partir de son opérateur
+de covariance et de sa fonction moyenne. Nous proposons de définir de
+la sorte le mouvement Brownien fractionnaire, qui jouit de propriétés
+similaires au mouvement Brownien standard.
+
+Ses applications, nombreuses et transversales, suffisent à justifier
+l'étude sommaire ci-présentée. Pour de plus amples détails sur les
+propriétés génériques du mouvement Brownien fractionnaire, ou plus
+généralement, des processus $\alpha$-stables, on pourra consulter le
+livre de référence~\cite{samorodnitsky1994}. Concernant l'intégration
+stochastique définie à partir du mouvement Brownien fractionnaire,
+\cite{biagini2008} propose une étude détaillée de multiples
+définitions de ce type d'intégrales ; on trouvera en particulier des
+applications en finance et en théorie de la commande
+optimale. L'ouvrage~\cite{mishura2008} s'attache à étudier les
+équations différentielles stochastiques bâties sur ce processus.
+
+\begin{alert}
+  Ajouter un rappel historique sur le mBf
+  (voir~\cite[p.~6]{biagini2008} et~\cite{mandelbrot1968}).
+\end{alert}
+\subsection{Définition et propriétés}
+
+Nous choisissons d'étudier le mouvement Brownien fractionnaire défini
+à partir de son opérateur de covariance. L'approche présentée ici est
+développée dans~\cite{ayache2018}; notons que, historiquement, c'est
+par une intégrale stochastique qu'a été défini le mouvement Brownien
+fractionnaire (voir~\cite{mandelbrot1968} à ce propos).
+
+\begin{definition}\label{def:mBf}
+  Soit $H\in\oset{0}{1}$; un processus stochastique
+  $B_H = \{B_H(t) : t\geq 0\}$ est un \emph{mouvement Brownien
+    fractionnaire}\index{mouvement Brownien fractionnaire} (noté dans
+  la suite \og{}mBf\fg{}) s'il s'agit d'un processus gaussien centré
+  dont l'opérateur de covariance $K_H$ est défini par
+  \[ K_H(t,s) = \Esp{B_H(t)B_H(s)} = \frac{1}{2}(t^{2H} + s^{2H} -
+    |t-s|^{2H}) \]
+  et dont les trajectoires sont presque sûrement continues.
+\end{definition}
+
+\nomenclature{mBf}{Mouvement Brownien fractionnaire}
+
+\begin{alert}
+  Renvoyer en annexe le résultat donnant l'existence d'un processus
+  gaussien pour un opérateur de covariance donné.
+\end{alert}
+
+\begin{question}
+  Proposer un préfacteur $\frac{c}{2}$ (au lieu de $\frac{1}{2}$) pour
+  donner un processus dont la variance vaut $ct$?
+\end{question}
+
+Il est clair que pour $H= \frac{1}{2}$, $B_H$ est un mouvement
+Brownien standard.
+
+\begin{remarque}
+  Dans la~\Cref{def\string:mBf}, l'hypothèse d'un processus centré
+  peut être relâchée. Cela ne change fondamentalement aucun résultat
+  présenté ici. Nous la formulons afin de ne pas alourdir les
+  notations et les calculs.
+\end{remarque}
+
+Le lien avec le mouvement Brownien standard peut sembler
+artificiel. La proposition suivante rend ce lien plus évident à l'aide
+d'une représentation intégrale\index{représentation
+  intégrale!mouvement Brownien fractionnaire}.
+
+\begin{proposition}[Représentation intégrale]
+  Soit $H\in\oset{0}{1}$; le processus définit explicitement par
+  \begin{gather*}
+    B_H(0) = 0 \\
+    B_H(t) - B_H(0) = c\left(\int_{-\infty}^0 (t-s)^{H- \frac{1}{2}} - (-s)^{H- \frac{1}{2} } dB(s) + \int_0^t (t-s)^{H- \frac{1}{2}} dB(s)\right)
+  \end{gather*}
+  où $c\in\oset{0}{\infty}$ est une constante, est un mBf.
+\end{proposition}
+
+\begin{alert}
+  On pourra écrire quelque part un rappel portant sur l'intégrale
+  d'Itô. Il faudra prendre soin de préciser que même si on ne l'a pas
+  étudié dans le cours \og{}Processus stochastiques\fg{} (2021--2022),
+  on peut définir une intégrale d'Itô impropre, \emph{e.g.} sur des
+  intervalles non bornés.
+\end{alert}
+
+On peut d'ores et déjà donner des propriétés fondamentales du mBf.
+
+\begin{proposition}
+  \label{pro:fbm-basic-properties}
+  Soient $H\in\oset{0}{1}$ et $B_H = \{B_H(t) : t\geq 0\}$ un mBf. On
+  a :
+  \begin{enumerate}
+  \item $B_H(0) = 0$ p.s.
+  \item \emph{(Accroissements stationnaires)} quels que soient $h>0$
+    et $t\geq 0$, $B_H(t+h)-B_H(t)\sim B_H(h)$.
+  \item \emph{(Auto-similarité)} quels que soient $\alpha>0$ et
+    $t\geq 0$, $\alpha^{-H} B_H(\alpha t) \sim B_H(t)$
+  \item \emph{(Inversion du temps)} quel que soit $t\geq 0$,
+    $t^{2H}B_H(\frac{1}{t}) \sim B_H(t)$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \begin{alert}
+    À faire.
+  \end{alert}
+\end{proof}
+
+\begin{question}
+  Comment apporter les distinctions portant sur les valeurs possibles
+  de $H$ : évoquer tout de go que le cas $H=\frac{1}{2}$ crée
+  naturellement cette distinction, ou attendre que cela émerge des
+  calculs ?
+\end{question}
+
+\subsection{Propriétés et régularité}
+L'exposant de Hurst modifie la régularité trajectorielle du fBm, mais
+modifie également quelques propriétés en comparaison du mouvement
+Brownien standard. Le mBf est auto-similaire, mais ses incréments ne
+sont pas indépendants. En effet, soit $B_H$ un mBf, et considérons
+$h>0$, et $t,s\geq 0$ tels que $0\leq t<t+h\leq s$ ; il vient
+successivement
+
+\begin{align*}
+  \Cov((B_H(t+h)-B_H(t)),(B_H(s+h)-B_H(s))) &= \Esp{(B_H(t+h)-B_H(t))(B_H(s+h)-B_H(s))} \\
+                                            &= -|t-s|^{2H}+\frac{1}{2}|t-s-h|^{2H}+\frac{1}{2}|t-s+h|^{2H}.
+\end{align*}
+Et en notant $|t-s|=nh$, la covariance s'écrit :
+\begin{equation*}
+  \Cov((B_H(t+h)-B_H(t)),(B_H(s+h)-B_H(s))) = \frac{1}{2}\left((n-1)^{2H} + (n+1)^{2H} - 2n^{2H}\right)h^{2H}
+\end{equation*}
+
+Définissons le processus
+$X = \left\{X_n = B_H(n+1)-B_H(n) | t\in\N\right\}$ ; vu
+la~\Cref{pro\string:fbm-basic-properties}, $(X_n)_{n\in\N}$ est un
+processus stationnaire. La fonction $\rho_H:\N\to\R$ définie par
+\begin{equation*}
+  \rho_H(n) = \Cov(X_{k+n}, X_k)
+\end{equation*}
+est donc bien définie quel que soit $k\in\N$, et son comportement
+dépend uniquement de la valeur de $H$. En effet, si $H=\frac{1}{2}$,
+il est clair que $\rho_H$ est identiquement nulle. Si $H<\frac{1}{2}$, alors la série
+\begin{equation}
+  \label{eqn:rho-series}
+  \sum_{n\in\N}^{} \rho_H(n)
+\end{equation}
+est absolument convergente, et on dira $B_H$ est un processus
+\emph{dépendant à court terme} (ou \emph{à mémoire courte}). Si
+$H>\frac{1}{2}$, alors la série~\ref{eqn:rho-series} diverge, et on
+dira que $B_H$ est un processus \emph{dépendant à long terme} (ou
+\emph{à mémoire longue}).
+
+\begin{prerequis}
+  On peut définir ce qu'est une semimartingale, mais il faut alors
+  définir ce qu'est une martingale locale. Soit on suppose que c'est
+  connu, soit on donne tout de même quelques propriétés de ces objets.
+\end{prerequis}
+
+On peut définir \emph{plusieurs} intégrales stochastiques pour le fBm
+: voir~\cite[Chp.~II-V]{biagini2008}. C'est moins agréables qu'avec le
+mouvement Brownien standard.
+
+Tout comme pour le mouvement Brownien standard, on utilise le théorème
+de Kolmogorov-Centsov pour établir la régularité des trajectoires du
+fBm.
+
+\begin{alert}
+  \textsc{Biagini} énonce que le fBm possède une mémoire longue. Cette
+  propriété est davantage étudiée pour les séries temporelles.
+\end{alert}
