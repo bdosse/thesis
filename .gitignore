@@ -22,3 +22,6 @@
 
 talks/*.pdf
 *.zip
+
+sources/*
+
