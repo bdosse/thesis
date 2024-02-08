@@ -6,4 +6,4 @@ all:
 	$(LATEX_COMP) $(LATEX_OPT) $(SOURCE)
 
 clean:
-	rm -rf *{~,aux,bbl,bcf,blg,fls,ilg,log,out,run.xml,toc} 
+	rm -rf *{~,aux,bbl,bcf,blg,dvi,fdb_latexmk,fls,ilg,log,nlo,out,run.xml,toc} 

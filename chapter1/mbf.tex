@@ -17,144 +17,202 @@ Les résultats de cette section sont issus principalement
 de~\cite{biagini2008,nourdin2012}.
 
 \subsection{Définition et propriétés}
+\label{subsec\string:fBm-def}
 
-Nous choisissons d'étudier le mouvement Brownien fractionnaire défini
-à partir de son opérateur de covariance. L'approche présentée ici est
-développée dans~\cite{ayache2018}; notons que, historiquement, c'est
-par une intégrale stochastique qu'a été défini le mouvement Brownien
-fractionnaire (voir~\cite{mandelbrot1968} à ce propos).
+Par le~\Cref{thm\string:kolmogorov}, le mouvement Brownien
+fractionnaire peut être défini à partir de son opérateur de
+covariance.
 
-\begin{definition}\label{def\string:mBf}
-  Soit $H\in\oset{0}{1}$; un processus stochastique
-  $B_H = \{B_H(t) : t\geq 0\}$ est un \emph{mouvement Brownien
-    fractionnaire}\index{mouvement Brownien fractionnaire} (noté dans
-  la suite \og{}mBf\fg{}) s'il s'agit d'un processus gaussien centré
-  dont l'opérateur de covariance $K_H$ est défini par
-  \[ K_H(t,s) = \Esp{B_H(t)B_H(s)} = \frac{1}{2}(t^{2H} + s^{2H} -
-    |t-s|^{2H}) \]
-  et dont les trajectoires sont presque sûrement continues.
+\begin{definition}
+  \label{def\string:fBm}
+  Soit $H\in\oset{0}{1}$ ; un \emph{mouvement Brownien fractionnaire
+    d'exposant de Hurst $H$} est un processus stochastique gaussien
+  centré noté
+  \[ B^H(t) = \left\{B^H(t) : t \in \coset{0}{\infty}\right\} \] tel
+  que
+  \begin{align}
+    \label{eqn\string:fBm-cov}
+    K^H(t_1,t_2) = \Esp{B^H(t_1)B^H(t_2)} = \frac{1}{2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right)
+  \end{align}
+  et tel que \[ B^H(0) = 0 \text{ p.s.} \] quels que soient
+  $t_1,t_2\in\coset{0}{\infty}$.
 \end{definition}
 
-\nomenclature{mBf}{Mouvement Brownien fractionnaire}
+\begin{alert}
+  Ajouter package nécessaire pour guillemets francophones.
+\end{alert}
 
-\begin{question}
-  Proposer un préfacteur $\frac{c}{2}$ (au lieu de $\frac{1}{2}$) pour
-  donner un processus dont la variance vaut $ct$?
-\end{question}
+\begin{notation}
+  Quand il n'y aura aucune ambiguïté, la mention \emph{\og d'exposant
+    de Hurst $H$\fg{}} pourra être omise. De même, on pourra désigner
+  un mouvement Brownien fractionnaire par le sigle \emph{\og
+    mBf\fg{}}.
+\end{notation}
 
-Il est clair que pour $H=\frac{1}{2}$, $B_H$ est un mouvement
-Brownien standard.
+Comme nous pourrons le constater sous peu, l'exposant de Hurst $H$ est
+un paramètre quantifiant la régularité des trajectoires du mBf
+$B^H$. En particulier, plus la valeur de $H$ est proche de $0$, plus
+ses trajectoires seront \emph{\og{}irrégulières\fg{}} (dans un sens
+que nous prendrons soin de préciser) ; à l'inverse, plus la valeur de
+$H$ est proche de $1$, plus les trajectoires de $B^H$ seront
+\emph{\og{}régulières\fg{}}.
+
+\begin{alert}
+  Insérer illustration pour différentes valeurs de $H$ (\emph{i.e.}
+  $H\in\{0.001,0.25,0.5,0.75,0.999\}$).
+\end{alert}
 
 \begin{remarque}
-  Dans la~\Cref{def\string:mBf}, l'hypothèse d'un processus centré
-  peut être relâchée. Cela ne change fondamentalement aucun résultat
-  présenté ici. Nous la formulons afin de ne pas alourdir les
-  notations et les calculs.
+  \label{rk\string:fBm-basic}
+  L'exposant de Hurst $H=\frac{1}{2}$ crée un mouvement Brownien
+  standard ; si $t_1,t_2\in\coset{0}{\infty}$, et si $t_1<t_2$, alors
+  \begin{align*}
+    \Esp{B^{\frac{1}{2}}(t_1)B^{\frac{1}{2}}(t_2)} &= \frac{1}{2}\left(t_1+t_2-|t_1-t_2|\right)\\
+                                                   &=\frac{1}{2}\left(t_1+t_2-t_2+t_1\right)\\
+                                                   &= t_1 = \min\{t_1,t_2\}.
+  \end{align*}
+
+  De même, il est possible de relâcher la définition du mBf en donnant
+  la permission à $H$ de prendre la valeur $1$ : dans ce cas, le mBf
+  est presque sûrement une droite. En effet, quel que soit
+  $t\in\coset{0}{\infty}$
+  \begin{align*}
+    \Esp{\left(B^1(t)-tB^1(1)\right)^2} &= \Esp{\left(B^1(t)\right)^2}-2t\Esp{B^1(t)B^1(1)}+\Esp{\left(tB^1(1)\right)^2}\\
+                                        &= t^2 -t\left(t^2+1-(t-1)^2\right) + t^2=0.
+  \end{align*}
 \end{remarque}
 
-Le lien avec le mouvement Brownien standard peut sembler
-artificiel. La proposition suivante rend ce lien plus évident à l'aide
-d'une représentation intégrale\index{représentation
-  intégrale!mouvement Brownien fractionnaire}.
+\subsubsection{Propriétés fondamentales}
+\label{subsubsec\string:fBm-prop}
 
-\begin{proposition}[Représentation intégrale]
-  Soit $H\in\oset{0}{1}$; le processus définit explicitement par
-  \begin{gather*}
-    B_H(0) = 0 \\
-    B_H(t) - B_H(0) = c\left(\int_{-\infty}^0 (t-s)^{H- \frac{1}{2}} - (-s)^{H- \frac{1}{2} } dB(s) + \int_0^t (t-s)^{H- \frac{1}{2}} dB(s)\right)
-  \end{gather*}
-  où $c\in\oset{0}{\infty}$ est une constante, est un mBf.
-\end{proposition}
-
-\begin{alert}
-  On pourra écrire quelque part un rappel portant sur l'intégrale
-  d'Itô. Il faudra prendre soin de préciser que même si on ne l'a pas
-  étudié dans le cours \og{}Processus stochastiques\fg{} (2021--2022),
-  on peut définir une intégrale d'Itô impropre, \emph{e.g.} sur des
-  intervalles non bornés.
-\end{alert}
-
-On peut d'ores et déjà donner des propriétés fondamentales du mBf.
+La~\Cref{rk\string:fBm-basic} suggère que le mBf partage des
+propriétés analogues au mouvement Brownien standard. La proposition
+suivante donne une caractérisation du mBf.
 
 \begin{proposition}
-  \label{pro:fbm-basic-properties}
-  Soient $H\in\oset{0}{1}$ et $B_H = \{B_H(t) : t\geq 0\}$ un mBf. On
-  a :
+  Soit $H\in\oset{0}{1}$ ; si $B^H$ est un mBf, alors pour tout
+  $t\in\coset{0}{\infty}$ :
   \begin{enumerate}
-  \item $B_H(0) = 0$ p.s.
-  \item \emph{(Accroissements stationnaires)} quels que soient $h>0$
-    et $t\geq 0$, $B_H(t+h)-B_H(t)\sim B_H(h)$.
-  \item \emph{(Auto-similarité)} quels que soient $\alpha>0$ et
-    $t\geq 0$, $\alpha^{-H} B_H(\alpha t) \sim B_H(t)$
-  \item \emph{(Inversion du temps)} quel que soit $t\geq 0$,
-    $t^{2H}B_H(\frac{1}{t}) \sim B_H(t)$.
+  \item\label{it\string:fBm-selfsim} Quel que soit $k\in\oset{0}{\infty}$,
+    $B^H(kt) = k^HB^H(t)$ ;
+  \item\label{it\string:fBm-stat-of-inc} Quel que soit
+    $h\in\oset{0}{\infty}$, $B^H(t+h) - B^H(h) = B^H(t)$ ;
+  \item\label{it\string:fBm-time-inversion} Si $t\neq 0$,
+    $B^H(\frac{1}{t}) = t^{-2H}B^H(t)$ ;
   \end{enumerate}
+  où la convergence a lieu au sens des lois fini-dimensionnelles.
+
+  Réciproquement, si
+  $B^H=\left\{B^H(t) : t\in\coset{0}{\infty}\right\}$ est un processus
+  gaussien vérifiant les
+  \cref{it\string:fBm-selfsim,it\string:fBm-stat-of-inc}, et tel que
+  \begin{enumerate}[resume]
+  \item $B^H(0)=0$ ;
+  \item $B^H(1)=1$ ;
+  \end{enumerate}
+  alors $B^H$ est un mBf d'exposant de Hurst $H$.
 \end{proposition}
+
+\begin{remarque}
+  \label{rk\string:fBm-selfsim-rephrase}
+  La relation~(\ref{it\string:fBm-selfsim}) permet d'écrire, pour tout
+  $t\in\coset{0}{\infty}$ : \[ B^H(t) = t^HB^H(1) .\]
+\end{remarque}
+
 \begin{proof}
-  \begin{alert}
-    À faire.
-  \end{alert}
+  Pour montrer les
+  \cref{it\string:fBm-selfsim,it\string:fBm-stat-of-inc,it\string:fBm-time-inversion},
+  il suffit de calculer l'opérateur de covariance dans chacun de ces
+  cas, et d'appliquer le~\Cref{thm\string:kolmogorov}.
+
+  Pour montrer la réciproque, supposons disposer d'un processus $B^H$
+  satisfaisant les hypothèses de celle-ci. Il suffit de montrer que le
+  processus est centré (direct vu les
+  points~\cref{it\string:fBm-selfsim, it\string:fBm-stat-of-inc}) et
+  que son opérateur de covariance vérifie la
+  relation~\cref{eqn\string:fBm-cov}. Pour ce dernier point, soient
+  $t_1,t_2\in\coset{0}{\infty}$ ; il vient :
+  \begin{align*}
+    \Esp{B^H(t_1)B^H(t_2)} &= \frac{1}{2}\left(\Esp{\left(B^H(t_1)\right)^2}+\Esp{\left(B^H(t_2)\right)^2}-\Esp{\left(B^H(t_1)-B^H(t_2)\right)^2}\right)\\
+                           &= \frac{1}{2}\left(\Esp{\left(B^H(t_1)\right)^2}+\Esp{\left(B^H(t_2)\right)^2}-\Esp{\left(B^H(|t_1-t_2|)\right)^2}\right)
+  \end{align*}
+  vu l'hypothèse~\cref{it\string:fBm-stat-of-inc}. De même,
+  l'hypothèse~\cref{it\string:fBm-selfsim} et
+  la~\Cref{rk\string:fBm-selfsim-rephrase} permette d'écrire :
+  \begin{align*}
+    \Esp{B^H(t_1)B^H(t_2)} &= \frac{1}{2}\Esp{\left(B^H(1)\right)^2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right)\\
+                           &= \frac{1}{2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right).
+  \end{align*}
+  Ce qui achève la preuve.
 \end{proof}
 
-\begin{question}
-  Comment apporter les distinctions portant sur les valeurs possibles
-  de $H$ : évoquer tout de go que le cas $H=\frac{1}{2}$ crée
-  naturellement cette distinction, ou attendre que cela émerge des
-  calculs ?
-\end{question}
+Vu la proposition précédente, on dira que le processus $B^H$ est
+\emph{auto-similaire} s'il vérifie la
+relation~\cref{it\string:fBm-selfsim}, qu'il est à \emph{incréments
+  stationnaires} s'il vérifie la
+relation~\cref{it\string:fBm-stat-of-inc}, et qu'il respecte
+\emph{l'inversion du temps} s'il vérifie la
+relation~\cref{it\string:fBm-time-inversion}.
 
-\subsection{Propriétés et régularité}
-L'exposant de Hurst modifie la régularité trajectorielle du fBm, mais
-modifie également quelques propriétés en comparaison du mouvement
-Brownien standard. Le mBf est auto-similaire, mais ses incréments ne
-sont pas indépendants. En effet, soit $B_H$ un mBf, et considérons
-$h>0$, et $t,s\geq 0$ tels que $0\leq t<t+h\leq s$ ; il vient
-successivement
+\subsection{Propriétés négatives}
+\label{subsec\string:fBm-absence-of-props}
 
-\begin{align*}
-  \Cov((B_H(t+h)-B_H(t)),(B_H(s+h)-B_H(s))) &= \Esp{(B_H(t+h)-B_H(t))(B_H(s+h)-B_H(s))} \\
-                                            &= -|t-s|^{2H}+\frac{1}{2}|t-s-h|^{2H}+\frac{1}{2}|t-s+h|^{2H}.
-\end{align*}
-Et en notant $|t-s|=nh$, la covariance s'écrit :
-\begin{equation*}
-  \Cov((B_H(t+h)-B_H(t)),(B_H(s+h)-B_H(s))) = \frac{1}{2}\left((n-1)^{2H} + (n+1)^{2H} - 2n^{2H}\right)h^{2H}
-\end{equation*}
+Le mouvement Brownien standard, en dépit de ses trajectoires (presque
+sûrement) nulle part dérivables, reste un processus plutôt
+régulier. En quelques sortes, il est \emph{\og régulier dans son
+  irrégularité \fg{}}. En considération de la
+\Cref{rk\string:fBm-basic}, le mouvement Brownien standard est un mBf
+particulier. En fait, il est \emph{maximal} pour certaines propriétés
+liées à la régularité.
 
-Définissons le processus
-$X = \left\{X_n = B_H(n+1)-B_H(n) | t\in\N\right\}$ ; vu
-la~\Cref{pro\string:fbm-basic-properties}, $(X_n)_{n\in\N}$ est un
-processus stationnaire. La fonction $\rho_H:\N\to\R$ définie par
-\begin{equation*}
-  \rho_H(n) = \Cov(X_{k+n}, X_k)
-\end{equation*}
-est donc bien définie quel que soit $k\in\N$, et son comportement
-dépend uniquement de la valeur de $H$. En effet, si $H=\frac{1}{2}$,
-il est clair que $\rho_H$ est identiquement nulle. Si $H<\frac{1}{2}$, alors la série
-\begin{equation}
-  \label{eqn:rho-series}
-  \sum_{n\in\N}^{} \rho_H(n)
-\end{equation}
-est absolument convergente, et on dira $B_H$ est un processus
-\emph{dépendant à court terme} (ou \emph{à mémoire courte}). Si
-$H>\frac{1}{2}$, alors la série~\ref{eqn:rho-series} diverge, et on
-dira que $B_H$ est un processus \emph{dépendant à long terme} (ou
-\emph{à mémoire longue}).
+\subsubsection{Prédictibilité}
+\label{subsubsec\string:fBm-predictability}
 
-\begin{prerequis}
-  On peut définir ce qu'est une semimartingale, mais il faut alors
-  définir ce qu'est une martingale locale. Soit on suppose que c'est
-  connu, soit on donne tout de même quelques propriétés de ces objets.
-\end{prerequis}
+Une manière de mesurer la régularité d'un processus stochastique est
+d'observer sa \og prédictibilité \fg{}, \emph{i.e.} s'il est possible
+de prévoir, à plus ou moins long terme, son comportement. Dans le cas
+du mouvement Brownien standard, il est connu\footnote{Insérer
+  référence.} qu'il s'agit d'une semi-martingale. Ce n'est pas le cas
+du mBf.
 
-On peut définir \emph{plusieurs} intégrales stochastiques pour le fBm
-: voir~\cite[Chp.~II-V]{biagini2008}. C'est moins agréables qu'avec le
-mouvement Brownien standard.
+\subsubsection{Propriété de Markov}
+\label{subsubsec\string:fBm-markov}
 
-Tout comme pour le mouvement Brownien standard, on utilise le théorème
-de Kolmogorov-Centsov pour établir la régularité des trajectoires du
-fBm.
+Un processus est vérifie la \emph{propriété de Markov} si, pour
+prédire son comportement futur, seul l'instant présent est \og utile
+\fg.
 
-\begin{alert}
-  \textsc{Biagini} énonce que le fBm possède une mémoire longue. Cette
-  propriété est davantage étudiée pour les séries temporelles.
-\end{alert}
+\begin{definition}
+  Soit $X = \left\{X(t) : t\geq 0\right\}$ un processus stochastique;
+  on dira de $X$ qu'il vérifie la propriété de Markov si, quel que
+  soit $t_1,t_2\geq 0$ tels que $t_1<t_2$ et quel que soit $A\in\B$,
+  la relation
+  \begin{align}
+    P(X(t_2) \in A| X(t), t\leq t_1) = P(X(t_2) \in A| X(t_1))
+  \end{align}
+  est vérifiée; on dira aussi que $X$ est un \emph{processus de
+    Markov}.
+\end{definition}
+
+Afin de montrer que si $B^H$ est un mBf avec $H\neq\frac{1}{2}$, alors
+$B^H$ ne vérifie pas la propriété de Markov, nous avons besoin du
+résultat suivant.
+
+\begin{lemme}
+  Si $X = \{X(t) : t\geq 0\}$ est un processus de Markov, alors $X$
+  vérifie la relation
+  \begin{align}
+    \Esp{X(t)X(v)}\Esp{(X(u)^2} = \Esp{X(t)X(u)}\Esp{X(u)X(v)}
+  \end{align}
+  quels que soient $t,u,v\in\coset{0}{\infty}$ tels que
+  $t\leq u\leq v$.
+\end{lemme}
+
+\begin{theoreme}
+  Soit $H\in\oset{0}{1}\setminus\frac{1}{2}$; si $B^H$ est un mBf,
+  alors $B^H$ n'est pas un processus de Markov.
+\end{theoreme}
+
+\subsection{Écritures alternatives}
+\label{subsec\string:fBm-other-forms}
+
