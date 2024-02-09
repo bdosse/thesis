@@ -1,4 +1,5 @@
 \section{Mouvement Brownien fractionnaire}
+\label{sec:fBm-1d}
 
 Bien que le mouvement Brownien fractionnaire possède des applications
 multiples et transversales, nous nous limiterons à une étude sommaire
@@ -17,30 +18,25 @@ Les résultats de cette section sont issus principalement
 de~\cite{biagini2008,nourdin2012}.
 
 \subsection{Définition et propriétés}
-\label{subsec\string:fBm-def}
+\label{subsec:fBm-def}
 
-Par le~\Cref{thm\string:kolmogorov}, le mouvement Brownien
-fractionnaire peut être défini à partir de son opérateur de
-covariance.
+Par le~\Cref{thm:kolmogorov}, le mouvement Brownien fractionnaire peut
+être défini à partir de son opérateur de covariance.
 
 \begin{definition}
-  \label{def\string:fBm}
+  \label{def:fBm}
   Soit $H\in\oset{0}{1}$ ; un \emph{mouvement Brownien fractionnaire
     d'exposant de Hurst $H$} est un processus stochastique gaussien
   centré noté
   \[ B^H(t) = \left\{B^H(t) : t \in \coset{0}{\infty}\right\} \] tel
   que
   \begin{align}
-    \label{eqn\string:fBm-cov}
+    \label{eqn:fBm-cov}
     K^H(t_1,t_2) = \Esp{B^H(t_1)B^H(t_2)} = \frac{1}{2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right)
   \end{align}
   et tel que \[ B^H(0) = 0 \text{ p.s.} \] quels que soient
   $t_1,t_2\in\coset{0}{\infty}$.
 \end{definition}
-
-\begin{alert}
-  Ajouter package nécessaire pour guillemets francophones.
-\end{alert}
 
 \begin{notation}
   Quand il n'y aura aucune ambiguïté, la mention \emph{\og d'exposant
@@ -63,13 +59,12 @@ $H$ est proche de $1$, plus les trajectoires de $B^H$ seront
 \end{alert}
 
 \begin{remarque}
-  \label{rk\string:fBm-basic}
+  \label{rk:fBm-basic}
   L'exposant de Hurst $H=\frac{1}{2}$ crée un mouvement Brownien
   standard ; si $t_1,t_2\in\coset{0}{\infty}$, et si $t_1<t_2$, alors
   \begin{align*}
     \Esp{B^{\frac{1}{2}}(t_1)B^{\frac{1}{2}}(t_2)} &= \frac{1}{2}\left(t_1+t_2-|t_1-t_2|\right)\\
-                                                   &=\frac{1}{2}\left(t_1+t_2-t_2+t_1\right)\\
-                                                   &= t_1 = \min\{t_1,t_2\}.
+                                                   &=\frac{1}{2}\left(t_1+t_2-t_2+t_1\right)\\ &= t_1 = \min\{t_1,t_2\}.
   \end{align*}
 
   De même, il est possible de relâcher la définition du mBf en donnant
@@ -83,29 +78,29 @@ $H$ est proche de $1$, plus les trajectoires de $B^H$ seront
 \end{remarque}
 
 \subsubsection{Propriétés fondamentales}
-\label{subsubsec\string:fBm-prop}
+\label{subsubsec:fBm-prop}
 
-La~\Cref{rk\string:fBm-basic} suggère que le mBf partage des
-propriétés analogues au mouvement Brownien standard. La proposition
-suivante donne une caractérisation du mBf.
+La~\Cref{rk:fBm-basic} suggère que le mBf partage des propriétés
+analogues au mouvement Brownien standard. La proposition suivante
+donne une caractérisation du mBf.
 
 \begin{proposition}
   Soit $H\in\oset{0}{1}$ ; si $B^H$ est un mBf, alors pour tout
   $t\in\coset{0}{\infty}$ :
   \begin{enumerate}
-  \item\label{it\string:fBm-selfsim} Quel que soit $k\in\oset{0}{\infty}$,
+  \item\label{it:fBm-selfsim} Quel que soit $k\in\oset{0}{\infty}$,
     $B^H(kt) = k^HB^H(t)$ ;
-  \item\label{it\string:fBm-stat-of-inc} Quel que soit
+  \item\label{it:fBm-stat-of-inc} Quel que soit
     $h\in\oset{0}{\infty}$, $B^H(t+h) - B^H(h) = B^H(t)$ ;
-  \item\label{it\string:fBm-time-inversion} Si $t\neq 0$,
+  \item\label{it:fBm-time-inversion} Si $t\neq 0$,
     $B^H(\frac{1}{t}) = t^{-2H}B^H(t)$ ;
   \end{enumerate}
   où la convergence a lieu au sens des lois fini-dimensionnelles.
 
   Réciproquement, si
   $B^H=\left\{B^H(t) : t\in\coset{0}{\infty}\right\}$ est un processus
-  gaussien vérifiant les
-  \cref{it\string:fBm-selfsim,it\string:fBm-stat-of-inc}, et tel que
+  gaussien vérifiant les \cref{it:fBm-selfsim,it:fBm-stat-of-inc}, et
+  tel que
   \begin{enumerate}[resume]
   \item $B^H(0)=0$ ;
   \item $B^H(1)=1$ ;
@@ -114,31 +109,30 @@ suivante donne une caractérisation du mBf.
 \end{proposition}
 
 \begin{remarque}
-  \label{rk\string:fBm-selfsim-rephrase}
-  La relation~(\ref{it\string:fBm-selfsim}) permet d'écrire, pour tout
+  \label{rk:fBm-selfsim-rephrase}
+  La relation~(\ref{it:fBm-selfsim}) permet d'écrire, pour tout
   $t\in\coset{0}{\infty}$ : \[ B^H(t) = t^HB^H(1) .\]
 \end{remarque}
 
 \begin{proof}
   Pour montrer les
-  \cref{it\string:fBm-selfsim,it\string:fBm-stat-of-inc,it\string:fBm-time-inversion},
-  il suffit de calculer l'opérateur de covariance dans chacun de ces
-  cas, et d'appliquer le~\Cref{thm\string:kolmogorov}.
+  \cref{it:fBm-selfsim,it:fBm-stat-of-inc,it:fBm-time-inversion}, il
+  suffit de calculer l'opérateur de covariance dans chacun de ces cas,
+  et d'appliquer le~\Cref{thm:kolmogorov}.
 
   Pour montrer la réciproque, supposons disposer d'un processus $B^H$
   satisfaisant les hypothèses de celle-ci. Il suffit de montrer que le
   processus est centré (direct vu les
-  points~\cref{it\string:fBm-selfsim, it\string:fBm-stat-of-inc}) et
-  que son opérateur de covariance vérifie la
-  relation~\cref{eqn\string:fBm-cov}. Pour ce dernier point, soient
-  $t_1,t_2\in\coset{0}{\infty}$ ; il vient :
+  \cref{it:fBm-selfsim,it:fBm-stat-of-inc}) et que son opérateur de
+  covariance vérifie l'\cref{eqn:fBm-cov}. Pour ce dernier point,
+  soient $t_1,t_2\in\coset{0}{\infty}$ ; il vient :
   \begin{align*}
     \Esp{B^H(t_1)B^H(t_2)} &= \frac{1}{2}\left(\Esp{\left(B^H(t_1)\right)^2}+\Esp{\left(B^H(t_2)\right)^2}-\Esp{\left(B^H(t_1)-B^H(t_2)\right)^2}\right)\\
                            &= \frac{1}{2}\left(\Esp{\left(B^H(t_1)\right)^2}+\Esp{\left(B^H(t_2)\right)^2}-\Esp{\left(B^H(|t_1-t_2|)\right)^2}\right)
   \end{align*}
-  vu l'hypothèse~\cref{it\string:fBm-stat-of-inc}. De même,
-  l'hypothèse~\cref{it\string:fBm-selfsim} et
-  la~\Cref{rk\string:fBm-selfsim-rephrase} permette d'écrire :
+  vu l'hypothèse du \cref{it:fBm-stat-of-inc}. De même, le
+  \cref{it:fBm-selfsim} et la~\Cref{rk:fBm-selfsim-rephrase}
+  permettent d'écrire :
   \begin{align*}
     \Esp{B^H(t_1)B^H(t_2)} &= \frac{1}{2}\Esp{\left(B^H(1)\right)^2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right)\\
                            &= \frac{1}{2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right).
@@ -147,26 +141,23 @@ suivante donne une caractérisation du mBf.
 \end{proof}
 
 Vu la proposition précédente, on dira que le processus $B^H$ est
-\emph{auto-similaire} s'il vérifie la
-relation~\cref{it\string:fBm-selfsim}, qu'il est à \emph{incréments
-  stationnaires} s'il vérifie la
-relation~\cref{it\string:fBm-stat-of-inc}, et qu'il respecte
-\emph{l'inversion du temps} s'il vérifie la
-relation~\cref{it\string:fBm-time-inversion}.
+\emph{auto-similaire} s'il vérifie le \cref{it:fBm-selfsim}, qu'il est
+à \emph{incréments stationnaires} s'il vérifie le
+\cref{it:fBm-stat-of-inc}, et qu'il respecte \emph{l'inversion du
+  temps} s'il vérifie le \cref{it:fBm-time-inversion}.
 
 \subsection{Propriétés négatives}
-\label{subsec\string:fBm-absence-of-props}
+\label{subsec:fBm-absence-of-props}
 
 Le mouvement Brownien standard, en dépit de ses trajectoires (presque
 sûrement) nulle part dérivables, reste un processus plutôt
 régulier. En quelques sortes, il est \emph{\og régulier dans son
-  irrégularité \fg{}}. En considération de la
-\Cref{rk\string:fBm-basic}, le mouvement Brownien standard est un mBf
-particulier. En fait, il est \emph{maximal} pour certaines propriétés
-liées à la régularité.
+  irrégularité \fg{}}. En considération de la \Cref{rk:fBm-basic}, le
+mouvement Brownien standard est un mBf particulier. En fait, il est
+\emph{maximal} pour certaines propriétés liées à la régularité.
 
 \subsubsection{Prédictibilité}
-\label{subsubsec\string:fBm-predictability}
+\label{subsubsec:fBm-predictability}
 
 Une manière de mesurer la régularité d'un processus stochastique est
 d'observer sa \og prédictibilité \fg{}, \emph{i.e.} s'il est possible
@@ -176,7 +167,7 @@ du mouvement Brownien standard, il est connu\footnote{Insérer
 du mBf.
 
 \subsubsection{Propriété de Markov}
-\label{subsubsec\string:fBm-markov}
+\label{subsubsec:fBm-markov}
 
 Un processus est vérifie la \emph{propriété de Markov} si, pour
 prédire son comportement futur, seul l'instant présent est \og utile
@@ -188,7 +179,7 @@ prédire son comportement futur, seul l'instant présent est \og utile
   soit $t_1,t_2\geq 0$ tels que $t_1<t_2$ et quel que soit $A\in\B$,
   la relation
   \begin{align}
-    P(X(t_2) \in A| X(t), t\leq t_1) = P(X(t_2) \in A| X(t_1))
+    P(X(t_2) \in A| X(t), t\leq t_1) = P(X(t_2) \in A|X(t_1))
   \end{align}
   est vérifiée; on dira aussi que $X$ est un \emph{processus de
     Markov}.
@@ -214,5 +205,81 @@ résultat suivant.
 \end{theoreme}
 
 \subsection{Écritures alternatives}
-\label{subsec\string:fBm-other-forms}
+\label{subsec:fBm-other-forms}
 
+La théorie du mouvement Brownien standard a permis le développement
+d'une intégrale stochastique (l'intégrale d'Itô) ; en particulier, il
+est possible de récrire trivialement le mouvement Brownien standard à
+partir d'une intégrale d'Itô : \[ B(t) = \int_0^t dB(s) .\] Ici, nous
+montrons qu'il est possible d'exprimer sous diverses formes le
+mouvement Brownien fractionnaire.
+
+\subsubsection*{Intégrale stochastique}
+
+\subsubsection*{Décomposition orthogonale}
+
+Il est nécessaire d'invoquer un outil d'analyse fonctionnel pour la
+démontrer. Si nous l'énonçons ici, nous renvoyons à la
+\Cref{sec:hilbert-operators} pour en connaître une démonstration.
+
+\begin{theoreme}[Théorème de Mercer]
+  \label{thm:mercers-theorem}
+  Soit $I$ un intervalle fermé de $\R$ et soit
+  \[ K : I\times I\to \R \] une fonction continue et symétrique. Si
+  $K$ est une fonction de type positif, alors il existe une base
+  orthonormée de fonctions continues $(e_k)_{k\in\N}$ de $L^2(I)$ et
+  des constantes $(c_k)_{k\in\N}$ positives ou nulles telles que
+  \begin{equation}
+    K(s,t) = \sum_{k\in\N} c_k e_k(s) e_k(t)
+  \end{equation}
+  où la convergence de la série est uniforme.
+\end{theoreme}
+
+\begin{alert}
+  Définir \og de type positif \fg{}.
+\end{alert}
+
+\begin{remarque}
+  Les fonctions $(e_j)_{j\in\N}$ intervenant dans le
+  \Cref{thm\string:mercers-theorem} sont des \og fonctions propres\fg{}
+  associées aux \og valeurs propres\fg{} $(c_k)_{k\in\N}$ pour
+  l'opérateur dont le noyau est défini par $K$\footnote{On pourra par
+    ailleurs trouver l'appellation de \emph{noyau de Mercer}.},
+  \emph{i.e.}
+  \begin{equation*}
+    \int K(s,t) e_k(t) dt = c_k e_k(t).
+  \end{equation*}
+\end{remarque}
+
+% Théorème de décomposition :
+Le théorème suivant assure, sous certaines conditions, l'existence
+d'une \og décomposition en ondelettes\fg{} d'un processus stochastique
+$X\in L^2$.
+
+\begin{theoreme}
+  \label{thm:orthogonal-decomp}
+  Soit $X = \{X(t) : t\in\cset{0}{T}\}$ un processus de $L^2(\Omega)$,
+  et supposons que $\corr_X$ soit continue sur
+  $\cset{0}{T}\times\cset{0}{T}$ ; le processus $X$ admet une
+  décomposition de la forme~\ref{eqn:orthogonal-decomp} si, et
+  seulement si, la suite de constante $(c_k)_{k\in\N}$ et la suite de
+  fonctions $(e_k)_{k\in\N}$ sont respectivement les valeurs propres
+  et les fonctions propres de $\corr_X$.
+\end{theoreme}
+\begin{alert}
+  \begin{proof}
+    À faire.
+  \end{proof}
+\end{alert}
+
+\begin{alert}
+  Une covariance ne définie pas entièrement un drap :
+  voir~\cite{herbin2002}
+\end{alert}
+
+\begin{remarque}
+  La convergence de la série du~\Cref{thm:orthogonal-decomp} est
+  uniforme.
+\end{remarque}
+
+\subsubsection*{Transformée de Fourier}

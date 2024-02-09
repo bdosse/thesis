@@ -1,48 +1,54 @@
 \section{Mouvement Brownien multifractionnaire}
-Un inconvénient considérable du fBm est son incapacité à faire varier
+Un inconvénient considérable du mBf est son incapacité à faire varier
 la régularité des trajectoires au cours du temps. Le mouvement
 Brownien multifractionnaire (noté mBm dans la suite) permet de se
 passer de cette limitation en utilisant une fonction exposant de Hurst
 $H(t)$.
 
+Cette section est basée sur les résultats donnés
+dans~\cite{ayache2018}, néanmoins ceux-ci sont limités à une dimension
+afin de ne pas alourdir l'exposé.
+
 \subsection{Définition et propriétés}
-\textsc{Ayache}~(\cite{ayache2018}) introduit le mBm au moyen d'une
-représentation intégrale et de générateurs.
+\label{subsec:mBm-def}
+
+Dans la \Cref{sec:fBm-1d}, la généralisation proposée par le mBf
+consistait à introduire un exposant de Hurst $H\in\oset{0}{1}$ afin
+d'assujettir les trajectoires du processus à une certaine
+irrégularité. Comme rappelé précédemment, l'introduction du mBf par
+Mandelbrot \& Van Ness~(\cite{mandelbrot1968}) se fut par une
+intégrale stochastique. Le choix d'une généralisation du mBf peut se
+faire à l'aide de ces représentations : dans~\cite{peltier1995}, les
+auteurs proposent d'utiliser la représentation intégrale ;
+dans~\cite{ayache2018}, il est proposé de modifier la transformée de
+Fourier du mBf. Dans les deux cas, cette modification porte sur
+l'exposant de Hurst, remplacé par une fonction mesurable
+$t\mapsto H(t)$\footnote{Dans~\cite{ayache2018}, cette fonction est
+  nommée \emph{\og fonction multifractionnaire de Hurst \fg{}}.}.
+
+\subsubsection{Propriétés du générateur}
+
+\subsection{Propriétés des trajectoires du mBm}
 
 \begin{prerequis}
-  Inclure le passage sur la transformation de Fourier : elle est utile
-  pour quelques articles.
+  Pour évoquer le caractère non différentiable des trajectoires, on
+  peut introduire quelques éléments relatifs aux temps locaux.
 \end{prerequis}
 
-Un générateur est une intégrale stochastique (bien choisie) par
-rapport au bruit gaussien (transformation de Fourier d'un mouvement
-Brownien).
+\subsubsection{Propriété de Hölder}
 
-Si on note $X(u,v)$ un générateur, alors $Y(t) = X(t, H(t))$ est un
-mBm (cette construction considère déjà $t\in\R^d$).
+\subsection{Écritures alternatives}
 
-Il existe des liens évidents avec le mBf : il suffit de choisir une
-fonction constante.
+\subsubsection*{Intégrale stochastique}
+
+\subsubsection*{Décomposition en ondelettes}
 
 \begin{alert}
-  Écrire le théorème d'existence de l'événement de probabilité $1$
-  dont il est question dans la Proposition suivante.
+  Concernant la représentation en ondelettes, prendre garde à
+  certaines subtilités (\cite{ayache2010}).
 \end{alert}
 
-\begin{proposition}
-  Supposons que $\Omega^*$ bien choisie est de mesure $1$ ; la
-  continuité de $H$ implique la continuité de $Y(\cdot,\omega)$ sur
-  $\R^d$ pour tout $\omega\in\Omega^*$.
-  \begin{alert}
-    On a une réciproque.
-  \end{alert}
-\end{proposition}
-
-\begin{question}
-  Que peut-on dire de l'auto-similarité du mBm ?
-  Voir~\cite[Définitions~(1.69) et~(1.70)]{ayache2018}. Le
-  Théorème~1.91 de~\cite{ayache2018} répond à la question.
-\end{question}
+\subsection{Un mot sur le mBm lorsque $H(t)$ n'est pas déterministe}
 
 \begin{piste}
   On peut définir (au moins) une intégrale stochastique pour le
@@ -68,22 +74,3 @@ fonction constante.
   \item Peut-on toujours simuler les trajectoires d'un tel processus ?
   \end{enumerate}
 \end{piste}
-
-\subsection{Régularité}
-
-\begin{question}
-  Est-il nécessaire de rappeler les notions vues lors des projets des
-  cours d'Espaces Fonctionnels ? Renvois en annexe ?
-\end{question}
-
-Sont données quelques propriétés trajectorielles, dont des conditions
-nécessaires et suffisantes sur la fonction $H$ pour la continuité du
-mBm. Des résultats concernant la régularité (globale, locale, et
-ponctuelle) de Hölder sont démontrés.
-
-\begin{prerequis}
-  Temps local ; on montre qu'un temps local suffisamment régulier
-  implique que, presque sûrement, les trajectoires du processus ne
-  sont pas dérivables (voir \emph{\og le principe de Bernam
-    \fg{}}~\cite[Sec.~2.3]{ayache2018}).
-\end{prerequis}

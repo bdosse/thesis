@@ -11,6 +11,9 @@
 
 \begin{document}
 
+\addto\extrasfrench{\protected\edef:{\unexpanded\expandafter{:}}}%useful when using cleveref with Babel French
+\selectlanguage{french}
+
 \frontmatter
 % \include{static/titlepage.tex}
 % \maketitle
@@ -23,8 +26,8 @@
 % consulté le 1$^{\text{er}}$ mai 2023.
 % \normalsize
 \maketitle
-\input{lec_00.tex}
-\printnomenclature
+%\input{lec_00.tex}
+%\printnomenclature
 \tableofcontents
 
 \mainmatter
