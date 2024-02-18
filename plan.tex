@@ -1,0 +1,226 @@
+% Created 2024-02-10 sam. 22:44
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Benjamin Dosse}
+\date{2024-02-10 sam.}
+\title{Feuille de route}
+\hypersetup{
+ pdfauthor={Benjamin Dosse},
+ pdftitle={Feuille de route},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.3 (Org mode 9.5.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\begin{center}
+Aperçu de la structure du document final. 
+\end{center}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\section{Chapitre 1 : processus en dimension 1}
+\label{sec:org65c0b25}
+On définit le mouvement Brownien fractionnaire (\emph{« mBf »}) et le
+mouvement Brownien multifractionnaire (\emph{« mBm »}).
+\subsection{Mouvement Brownien fractionnaire}
+\label{sec:orgc466ec9}
+\subsubsection{Définition}
+\label{sec:orgc74afd8}
+\begin{itemize}
+\item Via l'opérateur de covariance
+\item Rappeler le théorème de Kolmogorov (+ cas gaussien)
+\item Autres définitions plus loin
+\end{itemize}
+\subsubsection{Propriétés}
+\label{sec:org597e829}
+Bien que ces propriétés ne soient pas \emph{stricto censu} nécessaires pour
+étudier la régularité des trajectoires du mBf, elles sont
+intéressantes pour étudier une autre forme de \emph{régularité} (\emph{e.g.}
+prévisibilité, prédictibilité).
+
+\begin{itemize}
+\item Cas où le mBf est un mB
+\item Auto-similaire ; incréments stationnaires ; inversion du temps
+\item N'est pas une semi-martingale
+\begin{itemize}
+\item Pas vu en cours : vu (Gall2013)\footnote{Jean-François LE GALL, \emph{Brownian Motion, Martingales, and
+Stochastic Calculus}, Graduate Texts in Mathematics, Berlin :
+Springer-Verlag. 2013, p. XIII, 273, ISBN : 978-3-319-31089-3.}, une semi-martingale peut
+définir une intégrale stochastique. Comme le rappel
+(Nourdin2012)\footnote{Ivan NOURDIN, \emph{Selected Aspects of Fractional Brownian Motion},
+Bocconi and Springer Series, Milan : Springer. 2012, p. IX, 122,
+ISBN : 978-88-470-2823-4.},
+\begin{quote}
+    \emph{This explains why integrating with respect to it is an interesting
+and non-trivial problem.}
+
+-- Ivan Nourdin, à propos du mBf.
+\end{quote}
+\end{itemize}
+\item N'est pas un processus de Markov
+\end{itemize}
+\subsubsection{Autres écritures}
+\label{sec:orge047a83}
+\begin{itemize}
+\item Intégrale stochastique
+\begin{itemize}
+\item Il faut mentionner que la construction sur la droite est similaire
+à la construction sur la demi-droite positive.
+\end{itemize}
+\item Dans le domaine « fréquence » (\emph{i.e.} « transformée de Fourier »)
+\begin{itemize}
+\item Je suis perdu : (Ayache2019)\footnote{Antoine AYACHE, \emph{Multifractional Stochastic Fields: wavelets
+strategies in multifractional frameworks}, World Scientific. 2019,
+p. 236, ISBN : 978-98-145-2567-1.\label{org178f8ac}} propose une construction, mais
+je ne comprends pas tout à fait son raisonnement. Ailleurs : trop
+évasif. Je ne vois pas l'éléphant au milieu de la pièce\ldots{}
+\end{itemize}
+\end{itemize}
+\subsubsection{Régularité}
+\label{sec:org6388444}
+À chaque fois, il est utile de préciser « de quel côté » se situe
+l'exposant de Hurst par rapport à 1/2.
+\begin{itemize}
+\item Donner la régularité de Hölder locale
+\item Donner la régularité de Hölder globale
+\item Donner la dimension de Hausdorff
+\begin{itemize}
+\item Voir (Morters2010)\footnote{Peter MÖRTERS, PERES Yuval, \emph{Brownian Motion}, Cambridge Series
+in Statistical and Probabilistic Mathematics, Cambridge : Cambridge
+University Press. 2010, p. XII, 403, ISBN : 978-05-117-5048-9.}, chap. 4.
+\end{itemize}
+\end{itemize}
+\subsection{Mouvement Brownien multifractionnaire}
+\label{sec:org571b575}
+\subsubsection{Définitions}
+\label{sec:orgb14ad7b}
+\begin{itemize}
+\item On \emph{pourrait} suivre la construction de (Peltier1995)\footnote{Romain François PELTIER et LEVY VEHEL Jacques, \emph{Multifractional
+Brownian motion: definition and preliminary results}, Rapport de
+recherche INRIA n°2645, 1995.}, mais je
+trouve que les démonstrations ne sont pas très jolies.
+\item Dans (Benassi1998)\footnote{Albert BENASSI, ROUX Daniel, JAFFARD Stéphane, Elliptic gaussian
+random processes. \emph{In :} Rev. Mat. Iberoam. 13 (1997), no. 1,
+pp. 19–90}, on part de l'expression dans le domaine «
+fréquence ».
+\item Dans (Ayache2019)\textsuperscript{\ref{org178f8ac}}, l'exposé est le suivant : un générateur
+(dans le domaine « fréquence ») est introduit, on étudie quelques
+unes de ses propriétés, puis on particularise au mBm. De même, la
+décomposition en ondelettes se fera avec un générateur.
+\end{itemize}
+\subsubsection{« Régularité »}
+\label{sec:org649f863}
+C'est ici que la structure expose le plus vivement ses faiblesses \emph{si
+on suit (Ayache2019)\textsuperscript{\ref{org178f8ac}}} : les propriétés liées à la régularités
+sont démontrées dans le cas des champs multifractionnaires\ldots{} On peut
+citer les résultats, et les démontrer dans le chapitre suivant ?
+
+\section{Chapitre 2 : passage en dimension quelconque}
+\label{sec:orga2e90c2}
+\subsection{Généralisations}
+\label{sec:org0454e05}
+On présente deux généralisations possibles : le champ et le drap.
+\begin{itemize}
+\item Le \emph{champ} est plus régulier (au sens de l'isotropie : la direction
+d'une limite n'influe pas la valeur de la limite) que le
+\emph{drap}. Image mnémo. : un lit défait.
+\item Champ : norme, drap : produit tensoriel.
+\end{itemize}
+\subsection{Cas du mBf}
+\label{sec:org8ccdf5e}
+\subsubsection{Isotrope}
+\label{sec:org7930a3f}
+\begin{itemize}
+\item Définition
+\item Écriture alternative
+\item Opérateur de covariance
+\item Propriétés usuelles
+\begin{itemize}
+\item Auto-similarité ; incréments
+\end{itemize}
+\item Version continue
+\end{itemize}
+\subsubsection{Anisotrope}
+\label{sec:orgee8775b}
+\begin{itemize}
+\item Définition
+\item Écriture alternative
+\item Opérateur de covariance
+\item Propriétés usuelles
+\begin{itemize}
+\item Auto-similarité ; incréments
+\end{itemize}
+\item Version continue
+\end{itemize}
+\subsection{Cas du mBm}
+\label{sec:org7f9495c}
+\subsubsection{Isotrope}
+\label{sec:org4c2f5d5}
+\begin{itemize}
+\item Définition
+\item Écriture alternative
+\item Opérateur de covariance
+\item Version continue
+\end{itemize}
+\subsubsection{Anisotrope}
+\label{sec:orgf9a607a}
+\begin{itemize}
+\item Définition
+\item Écriture alternative
+\item Opérateur de covariance
+\item Version continue
+\end{itemize}
+
+\section{Chapitre 3 : régularités \& développement en ondelettes}
+\label{sec:org1e9c13f}
+\subsection{Régularité Hölderienne \& dimension fractale}
+\label{sec:orgc9248a4}
+Il a été étudié l'existence d'une version continue. Que dire de la
+régularité Hölderienne locale et ponctuelle ?
+
+\textbf{N.B. :} demander un avis sur les deux dernières présentations du
+cours sur les ondelettes (M1, familles de représentations).
+
+On va suivre (Herbin2002)\footnote{Erick HERBIN, \emph{From N parameter fractional Brownian motions to N
+parameter multifractional Brownian motions}, URL :
+\texttt{<https://arxiv.org/abs/math/0503182>}.} pour la structure de cette section.
+\subsubsection{Cas anisotrope}
+\label{sec:orgead4753}
+\begin{itemize}
+\item Régularité Hölderienne locale
+\item Régularité Hölderienne ponctuelle
+\item Dimension de Hausdorff
+\end{itemize}
+\subsubsection{Cas isotrope}
+\label{sec:orgd4ff62d}
+\begin{itemize}
+\item Régularité Hölderienne locale
+\item Régularité Hölderienne ponctuelle
+\item Dimension de Hausdorff
+\end{itemize}
+
+\subsection{Développement en ondelettes}
+\label{sec:org531f62d}
+Je ne suis absolument pas certain de la position de cette section dans
+la structure.
+
+\section{Chapitre X : Cas particulier : mBm avec exposant de Hurst aléatoire}
+\label{sec:orgf279e24}
+Bon. J'en parle comme d'un « à côté », mais\ldots{} Il n'y a qu'à voir le
+traitement de ce sujet dans (Ayache2019)\textsuperscript{\ref{org178f8ac}} pour comprendre que ce
+n'est pas lui rendre honneur. Et en fouillant arXiv, c'est plus
+frappant encore.
+\end{document}

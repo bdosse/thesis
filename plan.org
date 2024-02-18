@@ -1,0 +1,156 @@
+#+title: Feuille de route
+#+author: Benjamin Dosse
+#+date: 2024-02-10 sam.
+#+startup: show2levels
+#+options: toc:nil
+
+#+BEGIN_CENTER
+Aperçu de la structure du document final. 
+#+END_CENTER
+
+#+TOC: headlines 2
+* Chapitre 1 : processus en dimension 1
+On définit le mouvement Brownien fractionnaire (/« mBf »/) et le
+mouvement Brownien multifractionnaire (/« mBm »/).
+** Mouvement Brownien fractionnaire
+*** Définition
+- Via l'opérateur de covariance
+- Rappeler le théorème de Kolmogorov (+ cas gaussien)
+- Autres définitions plus loin
+*** Propriétés
+Bien que ces propriétés ne soient pas /stricto censu/ nécessaires pour
+étudier la régularité des trajectoires du mBf, elles sont
+intéressantes pour étudier une autre forme de /régularité/ (/e.g./
+prévisibilité, prédictibilité).
+
+- Cas où le mBf est un mB
+- Auto-similaire ; incréments stationnaires ; inversion du temps
+- N'est pas une semi-martingale
+  - Pas vu en cours : vu (Gall2013)[fn:1], une semi-martingale peut
+    définir une intégrale stochastique. Comme le rappel
+    (Nourdin2012)[fn:2],
+    #+BEGIN_QUOTE
+    /This explains why integrating with respect to it is an interesting
+and non-trivial problem./
+
+-- Ivan Nourdin, à propos du mBf.
+    #+END_QUOTE
+- N'est pas un processus de Markov
+*** Autres écritures
+- Intégrale stochastique
+  - Il faut mentionner que la construction sur la droite est similaire
+    à la construction sur la demi-droite positive.
+- Dans le domaine « fréquence » (/i.e./ « transformée de Fourier »)
+  - Je suis perdu : (Ayache2019)[fn:3] propose une construction, mais
+    je ne comprends pas tout à fait son raisonnement. Ailleurs : trop
+    évasif. Je ne vois pas l'éléphant au milieu de la pièce...
+*** Régularité
+À chaque fois, il est utile de préciser « de quel côté » se situe
+l'exposant de Hurst par rapport à 1/2.
+- Donner la régularité de Hölder locale
+- Donner la régularité de Hölder globale
+- Donner la dimension de Hausdorff
+  - Voir (Morters2010)[fn:6], chap. 4.
+** Mouvement Brownien multifractionnaire
+*** Définitions
+- On /pourrait/ suivre la construction de (Peltier1995)[fn:4], mais je
+  trouve que les démonstrations ne sont pas très jolies.
+- Dans (Benassi1998)[fn:5], on part de l'expression dans le domaine «
+  fréquence ».
+- Dans (Ayache2019)[fn:3], l'exposé est le suivant : un générateur
+  (dans le domaine « fréquence ») est introduit, on étudie quelques
+  unes de ses propriétés, puis on particularise au mBm. De même, la
+  décomposition en ondelettes se fera avec un générateur.
+*** « Régularité »
+C'est ici que la structure expose le plus vivement ses faiblesses /si
+on suit (Ayache2019)[fn:3]/ : les propriétés liées à la régularités
+sont démontrées dans le cas des champs multifractionnaires... On peut
+citer les résultats, et les démontrer dans le chapitre suivant ?
+
+* Chapitre 2 : passage en dimension quelconque
+** Généralisations
+On présente deux généralisations possibles : le champ et le drap.
+- Le /champ/ est plus régulier (au sens de l'isotropie : la direction
+  d'une limite n'influe pas la valeur de la limite) que le
+  /drap/. Image mnémo. : un lit défait.
+- Champ : norme, drap : produit tensoriel.
+** Cas du mBf
+*** Isotrope
+- Définition
+- Écriture alternative
+- Opérateur de covariance
+- Propriétés usuelles
+  - Auto-similarité ; incréments
+- Version continue
+*** Anisotrope
+- Définition
+- Écriture alternative
+- Opérateur de covariance
+- Propriétés usuelles
+  - Auto-similarité ; incréments
+- Version continue
+** Cas du mBm
+*** Isotrope
+- Définition
+- Écriture alternative
+- Opérateur de covariance
+- Version continue
+*** Anisotrope
+- Définition
+- Écriture alternative
+- Opérateur de covariance
+- Version continue
+
+* Chapitre 3 : régularités & développement en ondelettes
+** Régularité Hölderienne & dimension fractale
+Il a été étudié l'existence d'une version continue. Que dire de la
+régularité Hölderienne locale et ponctuelle ?
+
+*N.B. :* demander un avis sur les deux dernières présentations du
+cours sur les ondelettes (M1, familles de représentations).
+
+On va suivre (Herbin2002)[fn:7] pour la structure de cette section.
+*** Cas anisotrope
+- Régularité Hölderienne locale
+- Régularité Hölderienne ponctuelle
+- Dimension de Hausdorff
+*** Cas isotrope
+- Régularité Hölderienne locale
+- Régularité Hölderienne ponctuelle
+- Dimension de Hausdorff
+
+** Développement en ondelettes
+Je ne suis absolument pas certain de la position de cette section dans
+la structure.
+
+* Chapitre X : Cas particulier : mBm avec exposant de Hurst aléatoire
+Bon. J'en parle comme d'un « à côté », mais... Il n'y a qu'à voir le
+traitement de ce sujet dans (Ayache2019)[fn:3] pour comprendre que ce
+n'est pas lui rendre honneur. Et en fouillant arXiv, c'est plus
+frappant encore.
+
+* Footnotes
+
+[fn:7]Erick HERBIN, /From N parameter fractional Brownian motions to N
+parameter multifractional Brownian motions/, URL :
+~<https://arxiv.org/abs/math/0503182>~.
+[fn:6]Peter MÖRTERS, PERES Yuval, /Brownian Motion/, Cambridge Series
+in Statistical and Probabilistic Mathematics, Cambridge : Cambridge
+University Press. 2010, p. XII, 403, ISBN : 978-05-117-5048-9.
+
+[fn:5]Albert BENASSI, ROUX Daniel, JAFFARD Stéphane, Elliptic gaussian
+random processes. /In :/ Rev. Mat. Iberoam. 13 (1997), no. 1,
+pp. 19–90
+[fn:4]Romain François PELTIER et LEVY VEHEL Jacques, /Multifractional
+Brownian motion: definition and preliminary results/, Rapport de
+recherche INRIA n°2645, 1995.
+
+[fn:3]Antoine AYACHE, /Multifractional Stochastic Fields: wavelets
+strategies in multifractional frameworks/, World Scientific. 2019,
+p. 236, ISBN : 978-98-145-2567-1.
+[fn:2]Ivan NOURDIN, /Selected Aspects of Fractional Brownian Motion/,
+Bocconi and Springer Series, Milan : Springer. 2012, p. IX, 122,
+ISBN : 978-88-470-2823-4.
+[fn:1]Jean-François LE GALL, /Brownian Motion, Martingales, and
+Stochastic Calculus/, Graduate Texts in Mathematics, Berlin :
+Springer-Verlag. 2013, p. XIII, 273, ISBN : 978-3-319-31089-3.
