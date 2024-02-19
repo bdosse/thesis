@@ -20,8 +20,9 @@ de~\cite{biagini2008,nourdin2012}.
 \subsection{Définition et propriétés}
 \label{subsec:fBm-def}
 
-Par le~\Cref{thm:kolmogorov}, le mouvement Brownien fractionnaire peut
-être défini à partir de son opérateur de covariance.
+Par le~\Cref{thm:kolmogorov-existence}, le mouvement Brownien
+fractionnaire peut être défini à partir de son opérateur de
+covariance.
 
 \begin{definition}
   \label{def:fBm}
@@ -32,7 +33,7 @@ Par le~\Cref{thm:kolmogorov}, le mouvement Brownien fractionnaire peut
   que
   \begin{align}
     \label{eqn:fBm-cov}
-    K^H(t_1,t_2) = \Esp{B^H(t_1)B^H(t_2)} = \frac{1}{2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right)
+    K_H(t_1,t_2) = \Esp{B^H(t_1)B^H(t_2)} = \frac{1}{2}\left(t_1^{2H}+t_2^{2H}-|t_1-t_2|^{2H}\right)
   \end{align}
   et tel que \[ B^H(0) = 0 \text{ p.s.} \] quels que soient
   $t_1,t_2\in\coset{0}{\infty}$.
@@ -118,7 +119,7 @@ donne une caractérisation du mBf.
   Pour montrer les
   \cref{it:fBm-selfsim,it:fBm-stat-of-inc,it:fBm-time-inversion}, il
   suffit de calculer l'opérateur de covariance dans chacun de ces cas,
-  et d'appliquer le~\Cref{thm:kolmogorov}.
+  et d'appliquer le~\Cref{thm:kolmogorov-existence}.
 
   Pour montrer la réciproque, supposons disposer d'un processus $B^H$
   satisfaisant les hypothèses de celle-ci. Il suffit de montrer que le
@@ -179,7 +180,7 @@ prédire son comportement futur, seul l'instant présent est \og utile
   soit $t_1,t_2\geq 0$ tels que $t_1<t_2$ et quel que soit $A\in\B$,
   la relation
   \begin{align}
-    P(X(t_2) \in A| X(t), t\leq t_1) = P(X(t_2) \in A|X(t_1))
+    \P(X(t_2) \in A| X(t), t\leq t_1) = \P(X(t_2) \in A|X(t_1))
   \end{align}
   est vérifiée; on dira aussi que $X$ est un \emph{processus de
     Markov}.
@@ -187,22 +188,113 @@ prédire son comportement futur, seul l'instant présent est \og utile
 
 Afin de montrer que si $B^H$ est un mBf avec $H\neq\frac{1}{2}$, alors
 $B^H$ ne vérifie pas la propriété de Markov, nous avons besoin du
-résultat suivant.
+résultat suivant~(\cite{basu2007}).
 
 \begin{lemme}
-  Si $X = \{X(t) : t\geq 0\}$ est un processus de Markov, alors $X$
-  vérifie la relation
+  \label{lm:triangle-decomp}
+  Soit $X = \{X(t) : t\geq 0\}$ un processus gaussien dont la fonction
+  moyenne $\mu$ est identiquement nulle ; si $X$ vérifie la propriété
+  de Markov, alors quels que soient $t,u,v\in\coset{0}{\infty}$ tels
+  que $t<u<v$, on a :
   \begin{align}
-    \Esp{X(t)X(v)}\Esp{(X(u)^2} = \Esp{X(t)X(u)}\Esp{X(u)X(v)}
+    \label{eqn:triangle-decomp}
+    \Esp{X(t)X(v)}\Esp{(X(u))^2} = \Esp{X(t)X(u)}\Esp{X(u)X(v)}.
   \end{align}
-  quels que soient $t,u,v\in\coset{0}{\infty}$ tels que
-  $t\leq u\leq v$.
 \end{lemme}
+\begin{proof}
+  Si $t,u,v\in\coset{0}{\infty}$, et si $t<u<v$, alors la
+  \Cref{pro:cond-dist-gaussian} donne l'espérance de $X(t)$ et de
+  $X(v)$ conditionnellement à $X(u)$ ; en particulier, il vient :
+  \begin{align}
+    \label{eqn:esp-cond-markov-gaussian}
+    \Esp{X(t)|X(u)} = \frac{\Esp{X(t)X(u)}}{\Esp{(X(u))^2}}X(u),\\
+    \text{et}\\
+    \Esp{X(v)|X(u)} = \frac{\Esp{X(v)X(u)}}{\Esp{(X(u))^2}}X(u).
+  \end{align}
+  Vu les propriétés des espérances conditionnelles, on dispose de
+  l'égalité
+  \begin{align*}
+    \Esp{X(t)X(v)} = \Esp{\Esp{X(t)X(v)|X(u)}} ;
+  \end{align*}
+  vu que le processus $X$ est de Markov, on dispose de l'indépendance
+  inconditionnelle du produit, \emph{i.e.}
+  \begin{align}
+    \label{eqn:esp-cond-prod-markov}
+    \Esp{\Esp{X(t)X(v)|X(u)}} = \Esp{\Esp{X(t)|X(u)}\Esp{X(v)|X(u)}}.
+  \end{align}
+  Ainsi, vu les relations~(\ref{eqn:esp-cond-markov-gaussian})
+  et~(\ref{eqn:esp-cond-prod-markov}), on a
+  \begin{align*}
+    \Esp{X(t)X(v)} &= \Esp{\Esp{X(t)|X(u)}\Esp{X(v)|X(u)}} \\
+                   &= \Esp{\frac{\Esp{X(t)X(u)}}{\Esp{(X(u))^2}}X(u)\frac{\Esp{X(u)X(v)}}{\Esp{(X(u))^2}}X(u)}\\
+                   &= \frac{\Esp{X(t)X(u)}}{\Esp{(X(u))^2}}\frac{\Esp{X(u)X(v)}}{\Esp{(X(u))^2}}\Esp{(X(u))^2}\\
+                   &= \frac{(\Esp{X(t)X(u)})(\Esp{X(u)X(v)})}{\Esp{(X(u))^2}},
+  \end{align*}
+  d'où la conclusion.
+\end{proof}
 
 \begin{theoreme}
   Soit $H\in\oset{0}{1}\setminus\frac{1}{2}$; si $B^H$ est un mBf,
   alors $B^H$ n'est pas un processus de Markov.
 \end{theoreme}
+\begin{proof}
+  D'abord, nous montrons que si $B^H$ est un processus de Markov,
+  alors il admet deux \og représentations \fg{} équivalentes, définies
+  à partir de son opérateur de covariance. Pour aboutir à une
+  contradiction, nous montrons que le comportement limite de ces deux
+  \og représentations \fg{} diffère.
+  
+  Vu le \Cref{lm:triangle-decomp}, quels que soient
+  $t,u,v\in\coset{0}{\infty}$ tels que $t<u<v$, il vient que
+  \begin{align}
+    \label{eqn:triangle-decomp-fBm}
+    \Esp{B^H(t)B^H(v)}\Esp{(B^H(u))^2} = \Esp{B^H(t)B^H(u)}\Esp{B^H(u)B^H(v)}.
+  \end{align}
+  Posons $v=1$ et définissons explicitement, pour tout
+  $t\in\oset{0}{1}$, la fonction $\varphi_H$ par :
+  \begin{align}
+    \label{eqn:fBm-first-exp-varphi}
+    \varphi_H(t) &= K_H(t,1) \\
+                 &= \frac{1}{2}\left(t^{2H}+1-|t-1|^{2H}\right).
+  \end{align}
+  Ainsi définie, la fonction $\varphi_H$ est strictement positive sur
+  $\oset{0}{1}$ ; en particulier, il vient la relation
+  \begin{align*}
+    \frac{\Esp{B^H(t)B^H(u)}}{\Esp{(B^H(u))^2}} = \varphi_H(\frac{t}{u})
+  \end{align*}
+  pour autant que $u\in\oset{t}{1}$. De cette égalité, et vu la
+  relation~(\ref{eqn:triangle-decomp-fBm}), nous pouvons écrire une
+  formule similaire pour $\varphi_H$ :
+  \begin{align*}
+    \varphi_H(t) = \varphi_H(\frac{t}{u})\varphi_H(u) ;
+  \end{align*}
+  ce qui, en posant $\psi_H(x) = \ln\left(\varphi_H(e^{-x})\right)$,
+  quel que soit $x\geq 0$, se récrit :
+  \begin{align}
+    \label{eqn:fBm-psi-linear}
+    \psi_H(x+y) = \psi_H(x)+\psi_H(y).
+  \end{align}
+  Dès lors, par linéarité de $\psi_H$\footnote{On peut dériver par
+    rapport à $x$ l'expression~(\ref{eqn:fBm-psi-linear}) pour montrer
+    que la dérivée est constante sur $\coset{0}{\infty}$.}, il existe
+  une constante $c>0$ telle que $\psi_H(x)=-cx$, étant donné que
+  $\psi_H(0)=0$ et que $\lim_{x\to\infty}\psi_H(x)=-\infty$. Autrement
+  écrit, la fonction $\varphi_H$ peut s'exprimer par
+  \begin{align*}
+    \varphi_H(t) = t^c
+  \end{align*}
+  sur l'intervalle $\oset{0}{1}$; remarquons déjà que cette réécriture
+  implique \[ \varphi_H''(t) = c(c-1)t^{c-2} \]
+  \emph{i.e.} \[\lim_{t\to 1} |\varphi_H''(t)| = c|c-1| < \infty .\]
+  D'un autre côté, en dérivant deux fois
+  l'expression~(\ref{eqn:fBm-first-exp-varphi}), il vient
+  l'égalité \[ \varphi_H''(t) = H(2H-1)(t^{2H-2}-(1-t)^{2H-2}) \]
+  d'où \[ \lim_{t\to 1} |\varphi_H''(t)| = \infty .\]
+  En effet, par choix de $H$, $H(2H-1)$ est non-nul, et $2H-2$ est
+  (strictement) négatif. Ainsi, vu la contradiction, il vient que
+  $B^H$ n'est pas un processus de Markov si $H\neq\frac{1}{2}$.
+\end{proof}
+
 
 \subsection{Écritures alternatives}
 \label{subsec:fBm-other-forms}
@@ -217,69 +309,5 @@ mouvement Brownien fractionnaire.
 \subsubsection*{Intégrale stochastique}
 
 \subsubsection*{Décomposition orthogonale}
-
-Il est nécessaire d'invoquer un outil d'analyse fonctionnel pour la
-démontrer. Si nous l'énonçons ici, nous renvoyons à la
-\Cref{sec:hilbert-operators} pour en connaître une démonstration.
-
-\begin{theoreme}[Théorème de Mercer]
-  \label{thm:mercers-theorem}
-  Soit $I$ un intervalle fermé de $\R$ et soit
-  \[ K : I\times I\to \R \] une fonction continue et symétrique. Si
-  $K$ est une fonction de type positif, alors il existe une base
-  orthonormée de fonctions continues $(e_k)_{k\in\N}$ de $L^2(I)$ et
-  des constantes $(c_k)_{k\in\N}$ positives ou nulles telles que
-  \begin{equation}
-    K(s,t) = \sum_{k\in\N} c_k e_k(s) e_k(t)
-  \end{equation}
-  où la convergence de la série est uniforme.
-\end{theoreme}
-
-\begin{alert}
-  Définir \og de type positif \fg{}.
-\end{alert}
-
-\begin{remarque}
-  Les fonctions $(e_j)_{j\in\N}$ intervenant dans le
-  \Cref{thm\string:mercers-theorem} sont des \og fonctions propres\fg{}
-  associées aux \og valeurs propres\fg{} $(c_k)_{k\in\N}$ pour
-  l'opérateur dont le noyau est défini par $K$\footnote{On pourra par
-    ailleurs trouver l'appellation de \emph{noyau de Mercer}.},
-  \emph{i.e.}
-  \begin{equation*}
-    \int K(s,t) e_k(t) dt = c_k e_k(t).
-  \end{equation*}
-\end{remarque}
-
-% Théorème de décomposition :
-Le théorème suivant assure, sous certaines conditions, l'existence
-d'une \og décomposition en ondelettes\fg{} d'un processus stochastique
-$X\in L^2$.
-
-\begin{theoreme}
-  \label{thm:orthogonal-decomp}
-  Soit $X = \{X(t) : t\in\cset{0}{T}\}$ un processus de $L^2(\Omega)$,
-  et supposons que $\corr_X$ soit continue sur
-  $\cset{0}{T}\times\cset{0}{T}$ ; le processus $X$ admet une
-  décomposition de la forme~\ref{eqn:orthogonal-decomp} si, et
-  seulement si, la suite de constante $(c_k)_{k\in\N}$ et la suite de
-  fonctions $(e_k)_{k\in\N}$ sont respectivement les valeurs propres
-  et les fonctions propres de $\corr_X$.
-\end{theoreme}
-\begin{alert}
-  \begin{proof}
-    À faire.
-  \end{proof}
-\end{alert}
-
-\begin{alert}
-  Une covariance ne définie pas entièrement un drap :
-  voir~\cite{herbin2002}
-\end{alert}
-
-\begin{remarque}
-  La convergence de la série du~\Cref{thm:orthogonal-decomp} est
-  uniforme.
-\end{remarque}
 
 \subsubsection*{Transformée de Fourier}
